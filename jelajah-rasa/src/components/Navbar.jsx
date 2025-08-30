@@ -12,7 +12,7 @@ export default function Navbar(){
 
     return(
         <>
-            <div className="navbar sticky top-0">
+            <div className="sticky top-0  z-20 bg-[#F5F0E8]">
                 <div className="font-Lora flex justify-between items-center pl-[8px] pr-[12px]  text-[#4A3521] shadow-lg md:px-10 ">
                     <button onClick={() => setIsMenuOpen(true)} className="text-xl text-[#AAAAAA] md:hidden">
                         <RxHamburgerMenu />
