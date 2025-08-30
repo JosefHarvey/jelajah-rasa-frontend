@@ -2,6 +2,7 @@ import { IoSearchOutline } from "react-icons/io5";
 import { MdOutlineLocationOn } from "react-icons/md";
 import { IoBookOutline } from "react-icons/io5";
 import { GrGroup } from "react-icons/gr";
+import { Link } from 'react-router-dom';
 
 export default function Landingpage (){
     return(
@@ -39,7 +40,7 @@ export default function Landingpage (){
                     <h3 className="font-Lora font-bold text-xl md:text-4xl">Nama makanan</h3>
                     <div className="font-Montserrat flex items-center gap-1 text-[#AAAAAA] text-xs md:text-base">
                         <MdOutlineLocationOn />
-                        <a href="">Padang</a>
+                        <Link to="/Citypage">Padang</Link>
                     </div>
 
                     <div className="font-Montserrat text-sm/4 mt-1 md:hidden">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat...</div>

@@ -1,13 +1,24 @@
 import Navbar from "./components/Navbar"
-import Landingpage from "./pages/Landingpage"
+import Approutes from "./Routes/Approutes"
+import { BrowserRouter as Router } from "react-router-dom";
+
+function AppWrapper() {
+  return (
+      <Router>
+        <App />
+      </Router>
+  );
+}
 
 function App() {
   return (
     <>
       <Navbar />
-      <Landingpage />
+      <main>
+        <Approutes />
+      </main>
     </>
   )
 }
 
-export default App
+export default AppWrapper
