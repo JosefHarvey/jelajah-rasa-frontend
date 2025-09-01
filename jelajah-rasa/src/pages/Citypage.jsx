@@ -15,11 +15,11 @@ export default function Citypage (){
             </div>
 
             <div className="my-5 mx-2 text-[#4A3521]  md:mx-10 md:my-5 lg:mx-20 lg:my-10">
-                <div className="flex flex-col items-start lg:shadow shadow-5xl lg:shadow-[#AAAAAA] lg:p-9">
+                <div className="flex flex-col items-start lg:shadow-xl lg:shadow-[#AAAAAA] lg:p-9">
                     <div className="text-sm/4 font-Montserrat md:text-base/5">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat...
                     </div>
-                    <div className="flex justify-around" >
+                    <div className="flex justify-around lg:my-10" >
                         <div className="flex-1 flex flex-col">
                             <h2 className="font-Lora text-2xl my-2 font-bold md:text-4xl">
                                 Profil Citarasa: <span className="text-[#D71515]">Nama Daerah</span>
@@ -41,7 +41,7 @@ export default function Citypage (){
                         Wajib Dicoba dari <span className="text-[#D71515]">Nama Daerah</span>
                     </h3>
                     <div className="grid w-full grid-cols-1 place-content-between gap-4 md:grid-cols-2 lg:grid-cols-4">
-                        <Link to="" className="row-span-1 bg-white">
+                        <Link to="/Foodpage" className="row-span-1 bg-white">
                             <img src="/placeholdermap.webp" alt="" />
                             <div className="px-2 py-4 md:p-4">
                                 <div className="font-Lora font-bold uppercase text-lg md:text-xl lg:text-2xl">Nama Makanan</div>
@@ -63,7 +63,7 @@ export default function Citypage (){
                                 </div>
                             </div>
                         </Link>
-                        <Link to="" className="row-span-1 bg-white">
+                        <Link to="/Foodpage" className="row-span-1 bg-white">
                             <img src="/placeholdermap.webp" alt="" />
                             <div className="px-2 py-4 md:p-4">
                                 <div className="font-Lora font-bold uppercase text-lg md:text-xl lg:text-2xl">Nama Makanan</div>
@@ -85,7 +85,7 @@ export default function Citypage (){
                                 </div>
                             </div>
                         </Link>
-                        <Link to="" className="row-span-1 bg-white">
+                        <Link to="/Foodpage" className="row-span-1 bg-white">
                             <img src="/placeholdermap.webp" alt="" />
                             <div className="px-2 py-4 md:p-4">
                                 <div className="font-Lora font-bold uppercase text-lg md:text-xl lg:text-2xl">Nama Makanan</div>
@@ -107,7 +107,7 @@ export default function Citypage (){
                                 </div>
                             </div>
                         </Link>
-                        <Link to="" className="row-span-1 bg-white">
+                        <Link to="/Foodpage" className="row-span-1 bg-white">
                             <img src="/placeholdermap.webp" alt="" />
                             <div className="px-2 py-4 md:p-4">
                                 <div className="font-Lora font-bold uppercase text-lg md:text-xl lg:text-2xl">Nama Makanan</div>
@@ -129,6 +129,29 @@ export default function Citypage (){
                                 </div>
                             </div>
                         </Link>
+                        <Link to="/Foodpage" className="row-span-1 bg-white">
+                            <img src="/placeholdermap.webp" alt="" />
+                            <div className="px-2 py-4 md:p-4">
+                                <div className="font-Lora font-bold uppercase text-lg md:text-xl lg:text-2xl">Nama Makanan</div>
+                                <div className="font-Lora font-bold text-sm flex items-center gap-x-1 md:text-base lg:text-lg">
+                                    <div>5.0</div>
+                                    <div className="flex text-[#FFBD16]">
+                                        <TiStarFullOutline />
+                                        <TiStarFullOutline />
+                                        <TiStarFullOutline />
+                                        <TiStarFullOutline />
+                                        <TiStarFullOutline />
+                                    </div>
+                                </div>
+                                <div className="mt-9 flex justify-around">
+                                    <PiCowBold />
+                                    <PiCowBold />
+                                    <PiCowBold />
+                                    <PiCowBold />
+                                </div>
+                            </div>
+                        </Link>
+
       
                     </div>
                     <div className="border-b-2 border-[#D71515] uppercase font-Lora font-bold self-center mt-4 text-lg">lebih banyak</div>           
