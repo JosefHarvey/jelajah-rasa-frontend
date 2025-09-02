@@ -3,8 +3,11 @@ import { MdOutlineLocationOn } from "react-icons/md";
 import { IoBookOutline } from "react-icons/io5";
 import { GrGroup } from "react-icons/gr";
 import { Link } from 'react-router-dom';
+import { useState } from "react";
 
 export default function Landingpage (){
+
+
     return(
         <>
             <div className="capitalize relative flex flex-col items-center ">

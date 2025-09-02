@@ -2,13 +2,21 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { MdOutlinePersonOutline } from "react-icons/md";
 import { RxCross1 } from "react-icons/rx";
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import Forminput from "./Forminput";
 
 export default function Navbar(){
     const[isMenuOpen, setIsMenuOpen] = useState(false)
+    const[isModalOpen,setIsModalOpen] = useState(false)
+
     const navLinks = [
         { href: "#", title: "Peta"},
         { href: "#", title: "Tentang Kami"}
     ]
+
+    const handleModalOpen =() => {
+        setIsModalOpen(true)
+    }
 
     return(
         <>
@@ -17,9 +25,9 @@ export default function Navbar(){
                     <button onClick={() => setIsMenuOpen(true)} className="text-xl text-[#AAAAAA] md:hidden">
                         <RxHamburgerMenu />
                     </button>
-                    <div className="h-[50px] ">
+                    <Link to={"/"} className="h-[50px] ">
                         <img src="/jelajah-rasa-logo.png" className="w-full h-full"/>
-                    </div>
+                    </Link>
                     <nav className="hidden md:flex font-Lora gap-10">
                         {navLinks.map((link) => (
                         <a 
@@ -69,11 +77,12 @@ export default function Navbar(){
                     </nav>
 
                    <div className="mx-10 mt-5 mb-10">
-                        <button className=" border border-[#AAAAAA]/20 uppercase text-md text-[#AAAAAA] px-6 py-7 font-medium">
+                        <button className=" border border-[#AAAAAA]/20 uppercase text-md text-[#AAAAAA] px-6 py-7 font-medium" onClick={() => handleModalOpen(true)}>
                             unggah cerita anda
-                        </button>    
+                        </button> 
+                        {isModalOpen && <Forminput isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}/>}     
                    </div>
-
+                     
                    <div className="mx-10 text-xl text-[#4A3521] font-medium">
                     abcdefgh123@gmail.com
                    </div>
