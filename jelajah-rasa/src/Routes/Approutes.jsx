@@ -3,6 +3,7 @@ import Landingpage from "../pages/Landingpage";
 import Citypage from "../pages/Citypage";
 import Foodpage from "../pages/Foodpage";
 import Profilepage from "../pages/Profilepage";
+import Register from "../pages/Register";
 
 
 

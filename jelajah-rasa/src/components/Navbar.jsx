@@ -4,10 +4,14 @@ import { RxCross1 } from "react-icons/rx";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Forminput from "./Forminput";
+import Register from "../pages/Register";
+import Login from "../pages/Login";
 
 export default function Navbar(){
     const[isMenuOpen, setIsMenuOpen] = useState(false)
     const[isModalOpen,setIsModalOpen] = useState(false)
+    const [isRegisterOpen, setIsRegisterOpen] = useState(false);
+    const [isLoginOpen, setIsLoginOpen] = useState(false);
 
     const navLinks = [
         { href: "#", title: "Peta"},
@@ -16,6 +20,20 @@ export default function Navbar(){
 
     const handleModalOpen =() => {
         setIsModalOpen(true)
+    }
+
+    const handleOpenRegister = () => {
+        setIsRegisterOpen(true);
+    }
+
+        const switchToRegister = () => {
+        setIsLoginOpen(false);
+        setIsRegisterOpen(true);
+    }
+
+    const switchToLogin = () => {
+        setIsRegisterOpen(false);
+        setIsLoginOpen(true);
     }
 
     return(
@@ -41,9 +59,11 @@ export default function Navbar(){
                     </nav>
                     <div className="flex md:gap-2">
                         <p className="hidden md:block capitalize">masuk</p>
-                        <button className="text-xl text-[#AAAAAA] ">
+                        <button className="text-xl text-[#AAAAAA] " onClick={() => setIsLoginOpen(true)}>
                             <MdOutlinePersonOutline />
                         </button>
+                        <Login isOpen={isLoginOpen} onClose={() => setIsLoginOpen(false)} onSwitchToRegister={switchToRegister}/>
+                        <Register isOpen={isRegisterOpen} onClose={() => setIsRegisterOpen(false)}/>
                     </div>
 
                 </div>
@@ -83,9 +103,9 @@ export default function Navbar(){
                         {isModalOpen && <Forminput isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}/>}     
                    </div>
                      
-                   <div className="mx-10 text-xl text-[#4A3521] font-medium">
+                   <a href="mailto:abcdefgh123@gmail.com" className="mx-10 text-xl text-[#4A3521] font-medium">
                     abcdefgh123@gmail.com
-                   </div>
+                   </a>
                     
                </div>
             </div>
