@@ -14,7 +14,7 @@ export default function Navbar(){
     const [isLoginOpen, setIsLoginOpen] = useState(false);
 
     const navLinks = [
-        { href: "#", title: "Peta"},
+        { href: "/Map", title: "Peta"},
         { href: "#", title: "Tentang Kami"}
     ]
 
@@ -48,13 +48,13 @@ export default function Navbar(){
                     </Link>
                     <nav className="hidden md:flex font-Lora gap-10">
                         {navLinks.map((link) => (
-                        <a 
+                        <Link 
                             key={link.title}
-                            href={link.href}
+                            to={link.href}
                             className=""
                         >
                             {link.title}
-                        </a>
+                        </Link>
                     ))}
                     </nav>
                     <div className="flex md:gap-2">

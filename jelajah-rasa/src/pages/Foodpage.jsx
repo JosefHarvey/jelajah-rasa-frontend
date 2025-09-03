@@ -18,9 +18,9 @@ export default function Foodpage (){
 
             <div className="my-5 mx-2 text-[#4A3521] font-Montserrat md:mx-10 md:my-5 lg:mx-20 lg:my-10 ">
                 <div className="flex justify-between lg:shadow-xl/lg  lg:p-25 lg:flex-col ">
-                    <div className="hidden lg:block w-full mb-25">
-                        <img src="/placeholdermap.webp" alt="" className="h-205 w-full object-cover"/>
-                    </div>
+                        <div className="hidden lg:block w-full mb-25">
+                            <img src="/placeholdermap.webp" alt="" className="h-205 w-full object-cover"/>
+                        </div>
                         <div className="lg:flex lg:justify-between items-center">
                             <div className="font-Lora text-2xl capitalize font-bold text-[#D71515] md:text-4xl lg:text-5xl">
                                 nama makanan
@@ -30,10 +30,93 @@ export default function Foodpage (){
                             </Link>
                         </div>
                         <div id="overview" className="hidden lg:flex lg:justify-between items-start gap-30 my-20">
-                            <div className="text-base/5 flex-1 ">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                            <div class="max-w-4xl mx-auto px-4 ">
+                                <header class="text-center my">
+                                    <p class="text-lg max-w-2xl mx-auto text-gray-600">
+                                        Hidangan daging kaya rempah asal Minangkabau yang dinobatkan sebagai salah satu makanan terlezat di dunia.
+                                    </p>
+                                </header>
+                                <figure class="my-12">
+                                    <img src="/rendangImg.jpg" alt="Sepiring Rendang disajikan dengan nasi hangat" class="w-full h-96 object-cover rounded-lg shadow-xl" />
+                                    <figcaption class="text-center text-sm text-gray-500 mt-2">
+                                        Rendang kering yang dimasak sempurna dapat bertahan hingga berminggu-minggu.
+                                    </figcaption>
+                                </figure>
+                                <blockquote class="border-l-4 border-[#D71515] pl-6 py-4 my-12 italic text-xl md:text-2xl font-lora text-gray-700">
+                                    "Pada 2018, rendang secara resmi ditetapkan sebagai salah satu dari lima hidangan nasional Indonesia."
+                                </blockquote>
+                                <div class="grid grid-cols-1 lg:grid-cols-3 lg:gap-12">
+                                    <article class="lg:col-span-2 space-y-6 text-base leading-relaxed">
+                                        <h2 class="font-lora text-3xl font-bold border-b-2 border-[#D71515] pb-2">Kandungan dan Cara Memasak</h2>
+                                        <p>
+                                            Rendang adalah masakan yang kaya akan kandungan bumbu rempah. Selain bahan dasar daging, rendang menggunakan santan kelapa (karambia), dan campuran dari berbagai bumbu khas yang dihaluskan di antaranya cabai (lado), serai, lengkuas, kunyit, jahe, bawang putih, bawang merah, dan aneka bumbu lainnya yang biasanya disebut sebagai pemasak.
+                                        </p>
+                                        <p>
+                                            Keunikan rendang adalah penggunaan bumbu-bumbu alami, yang bersifat antiseptik dan membunuh bakteri patogen sehingga bersifat sebagai bahan pengawet alami. Bawang putih, bawang merah, jahe, dan lengkuas diketahui memiliki aktivitas antimikroba yang kuat. Tidak mengherankan jika rendang dapat disimpan seminggu hingga empat minggu.
+                                        </p>
+                                        <p>
+                                            Proses memasak rendang asli dapat menghabiskan waktu berjam-jam (biasanya sekitar empat jam), karena itulah memasak rendang memerlukan waktu dan kesabaran. Potongan daging dimasak bersama bumbu dan santan dalam panas api yang tepat, diaduk pelan-pelan hingga santan dan bumbu terserap daging. Setelah mendidih, apinya dikecilkan dan terus diaduk hingga santan mengental dan menjadi kering. Proses memasak ini dikenal dalam seni kuliner modern dengan istilah 'karamelisasi'.
+                                        </p>
+                                    </article>
+
+                                    <aside class="mt-8 lg:mt-0 p-6 bg-white rounded-lg shadow-lg h-fit">
+                                        <h3 class="font-lora text-2xl font-bold mb-4">Fakta Singkat</h3>
+                                        <ul class="space-y-4 text-sm">
+                                            <li class="flex items-start">
+                                                <span class="font-bold text-[#A9442A] w-20 flex-shrink-0">Asal:</span>
+                                                <span>Minangkabau, Sumatera Barat</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <span class="font-bold text-[#A9442A] w-20 flex-shrink-0">Jenis:</span>
+                                                <span>Lauk pauk (daging)</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <span class="font-bold text-[#A9442A] w-20 flex-shrink-0">Ciri Khas:</span>
+                                                <span>Proses masak lambat (merendang), kaya rempah, dan awet.</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <span class="font-bold text-[#A9442A] w-20 flex-shrink-0">Tahapan:</span>
+                                                <span>Gulai → Kalio → Rendang</span>
+                                            </li>
+                                        </ul>
+                                    </aside>
+                                </div>
+                                <article class="my-16 space-y-6 text-base leading-relaxed">
+                                    <h2 class="font-lora text-3xl font-bold border-b-2 border-[#D71515] pb-2">Sejarah dan Makna Rendang</h2>
+                                    <p>
+                                        Asal-usul rendang ditelusuri berasal dari tanah Minangkabau. Bagi masyarakat Minang, rendang sudah ada sejak dahulu dan telah menjadi masakan tradisi yang dihidangkan dalam berbagai acara adat. Sejarawan menduga, rendang telah menjadi masakan yang tersebar luas sejak orang Minang mulai merantau dan berlayar ke Malaka untuk berdagang pada awal abad ke-16. Hal ini karena rendang kering sangat awet, tahan disimpan hingga berbulan lamanya, sehingga tepat dijadikan bekal.
+                                    </p>
+                                    
+                                    <div class="p-6 bg-white rounded-lg shadow-md my-8">
+                                        <h3 class="font-lora text-2xl font-bold mb-2 text-center text-[#D71515]">Filosofi Empat Bahan Utama</h3>
+                                        <p class="text-center text-sm mb-4 text-gray-600">
+                                            Rendang melambangkan musyawarah dan mufakat dalam masyarakat Minang.
+                                        </p>
+                                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center text-sm">
+                                            <div>
+                                                <p class="font-bold">Dagiang (Daging)</p>
+                                                <p class="text-gray-500">Niniak Mamak (Pemimpin Adat)</p>
+                                            </div>
+                                            <div>
+                                                <p class="font-bold">Karambia (Kelapa)</p>
+                                                <p class="text-gray-500">Cadiak Pandai (Intelektual)</p>
+                                            </div>
+                                            <div>
+                                                <p class="font-bold">Lado (Cabai)</p>
+                                                <p class="text-gray-500">Alim Ulama (Pemuka Agama)</p>
+                                            </div>
+                                            <div>
+                                                <p class="font-bold">Pemasak (Bumbu)</p>
+                                                <p class="text-gray-500">Masyarakat Minang</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <p>
+                                        Dalam tradisi Minangkabau, rendang adalah hidangan yang wajib disajikan dalam setiap perayaan adat, seperti berbagai upacara adat Minangkabau, kenduri, atau menyambut tamu kehormatan. Ketenarannya di seluruh dunia dibuktikan saat dinobatkan sebagai hidangan peringkat pertama dalam daftar World's 50 Most Delicious Foods versi CNN International pada tahun 2011.
+                                    </p>
+                                </article>
+
                             </div>
                             <div className="hidden lg:block max-w-125  flex-1">
                                 <img src="/placeholdermap.webp" alt="" className="w-full object-cover"/>

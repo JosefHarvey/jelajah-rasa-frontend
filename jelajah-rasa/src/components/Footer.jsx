@@ -9,7 +9,7 @@ export default function Footer (){
         setIsModalOpen(true)
     }
     return(
-        <div className="bg-[#3A3A3A] text-[#F5F0E8] font-Montserrat flex flex-col px-2 ">
+        <div id="Footer" className="bg-[#3A3A3A] text-[#F5F0E8] font-Montserrat flex flex-col px-2 ">
             <div className="flex flex-col items-center ">
                 <div className="w-50 mt-5 lg:w-100 lg:mt-11">
                     <img src="/jelajah-rasa-logo.png" alt="" className="w-full h-full object-cover" />
