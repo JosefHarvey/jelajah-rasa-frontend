@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { RxCross1 } from 'react-icons/rx'; // Ikon close
 import { FaEye, FaEyeSlash } from 'react-icons/fa'; // Ikon untuk password
 
+
 export default function Register({ isOpen, onClose }) {
   const [formData, setFormData] = useState({
     email: '',
@@ -13,16 +14,40 @@ export default function Register({ isOpen, onClose }) {
   
   // State untuk menampilkan/menyembunyikan password
   const [showPassword, setShowPassword] = useState(false);
-
+  const [errorMessage, setErrorMessage] = useState("");
+  
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prevState => ({ ...prevState, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = async (event) => {
+    event.preventDefault();
     console.log('Data Registrasi:', formData);
-    // Logika untuk mengirim data ke backend
+    try{
+      const response = await fetch("http://localhost:3000/api/auth/register",{
+        method: "POST",
+        headers: {
+                'Content-Type': 'application/json',
+            },
+        body: JSON.stringify({
+          email: formData.email,
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          password: formData.password
+        })
+      })
+      if (response.ok) {
+            const data = await response.json();
+            console.log("Registrasi Berhasil:", data);
+        } else {
+            console.error("Registrasi Gagal:", response.statusText);
+        }
+    }
+    catch(error){
+      console.error("Pendaftaran error:", error);
+      setErrorMessage("Terjadi kesalahan. Coba lagi.");
+    }
     onClose(); // Menutup modal setelah submit
   };
   

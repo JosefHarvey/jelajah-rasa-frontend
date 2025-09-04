@@ -70,7 +70,7 @@ export default function Navbar(){
             </div>
 
             <div
-                className={`fixed top-0 left-0 h-full w-4/5 max-w-sm bg-[#F5F0E8] z-50 py-[40px] transform transition-transform duration-300 ease-in-out ${isMenuOpen ? "translate-x-0" : "-translate-x-full"}`}
+                className={`fixed top-0 left-0 h-full w-4/5 max-w-sm bg-[#F5F0E8] z-1000 py-[40px] transform transition-transform duration-300 ease-in-out ${isMenuOpen ? "translate-x-0" : "-translate-x-full"}`}
             >
                 <div className="flex justify-end px-5 mb-10">
                     <button onClick={() => setIsMenuOpen(false)} className="text-2xl text-[#AAAAAA] ">

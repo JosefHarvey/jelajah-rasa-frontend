@@ -1,9 +1,11 @@
-import { TiStarFullOutline } from "react-icons/ti";
-import { PiCowBold } from "react-icons/pi";
-import { MdOutlineLocationOn } from "react-icons/md";
-import { Link } from "react-router-dom";
+
+import { useState } from "react";
+import FoodCard from "../components/FoodCard";
+import RestoCityCard from "../components/RestoCityCard";
 
 export default function Citypage (){
+
+    
     return(
         <>
             <div className="relative flex items-center justify-center">
@@ -41,197 +43,16 @@ export default function Citypage (){
                         Wajib Dicoba dari <span className="text-[#D71515]">Nama Daerah</span>
                     </h3>
                     <div className="grid w-full grid-cols-1 place-content-between gap-4 md:grid-cols-2 lg:grid-cols-4">
-                        <Link to="/Foodpage" className="row-span-1 bg-white">
-                            <img src="/placeholdermap.webp" alt="" />
-                            <div className="px-2 py-4 md:p-4">
-                                <div className="font-Lora font-bold uppercase text-lg md:text-xl lg:text-2xl">Nama Makanan</div>
-                                <div className="font-Lora font-bold text-sm flex items-center gap-x-1 md:text-base lg:text-lg">
-                                    <div>5.0</div>
-                                    <div className="flex text-[#FFBD16]">
-                                        <TiStarFullOutline />
-                                        <TiStarFullOutline />
-                                        <TiStarFullOutline />
-                                        <TiStarFullOutline />
-                                        <TiStarFullOutline />
-                                    </div>
-                                </div>
-                                <div className="mt-9 flex justify-around">
-                                    <PiCowBold />
-                                    <PiCowBold />
-                                    <PiCowBold />
-                                    <PiCowBold />
-                                </div>
-                            </div>
-                        </Link>
-                        <Link to="/Foodpage" className="row-span-1 bg-white">
-                            <img src="/placeholdermap.webp" alt="" />
-                            <div className="px-2 py-4 md:p-4">
-                                <div className="font-Lora font-bold uppercase text-lg md:text-xl lg:text-2xl">Nama Makanan</div>
-                                <div className="font-Lora font-bold text-sm flex items-center gap-x-1 md:text-base lg:text-lg">
-                                    <div>5.0</div>
-                                    <div className="flex text-[#FFBD16]">
-                                        <TiStarFullOutline />
-                                        <TiStarFullOutline />
-                                        <TiStarFullOutline />
-                                        <TiStarFullOutline />
-                                        <TiStarFullOutline />
-                                    </div>
-                                </div>
-                                <div className="mt-9 flex justify-around">
-                                    <PiCowBold />
-                                    <PiCowBold />
-                                    <PiCowBold />
-                                    <PiCowBold />
-                                </div>
-                            </div>
-                        </Link>
-                        <Link to="/Foodpage" className="row-span-1 bg-white">
-                            <img src="/placeholdermap.webp" alt="" />
-                            <div className="px-2 py-4 md:p-4">
-                                <div className="font-Lora font-bold uppercase text-lg md:text-xl lg:text-2xl">Nama Makanan</div>
-                                <div className="font-Lora font-bold text-sm flex items-center gap-x-1 md:text-base lg:text-lg">
-                                    <div>5.0</div>
-                                    <div className="flex text-[#FFBD16]">
-                                        <TiStarFullOutline />
-                                        <TiStarFullOutline />
-                                        <TiStarFullOutline />
-                                        <TiStarFullOutline />
-                                        <TiStarFullOutline />
-                                    </div>
-                                </div>
-                                <div className="mt-9 flex justify-around">
-                                    <PiCowBold />
-                                    <PiCowBold />
-                                    <PiCowBold />
-                                    <PiCowBold />
-                                </div>
-                            </div>
-                        </Link>
-                        <Link to="/Foodpage" className="row-span-1 bg-white">
-                            <img src="/placeholdermap.webp" alt="" />
-                            <div className="px-2 py-4 md:p-4">
-                                <div className="font-Lora font-bold uppercase text-lg md:text-xl lg:text-2xl">Nama Makanan</div>
-                                <div className="font-Lora font-bold text-sm flex items-center gap-x-1 md:text-base lg:text-lg">
-                                    <div>5.0</div>
-                                    <div className="flex text-[#FFBD16]">
-                                        <TiStarFullOutline />
-                                        <TiStarFullOutline />
-                                        <TiStarFullOutline />
-                                        <TiStarFullOutline />
-                                        <TiStarFullOutline />
-                                    </div>
-                                </div>
-                                <div className="mt-9 flex justify-around">
-                                    <PiCowBold />
-                                    <PiCowBold />
-                                    <PiCowBold />
-                                    <PiCowBold />
-                                </div>
-                            </div>
-                        </Link>
-                        <Link to="/Foodpage" className="row-span-1 bg-white">
-                            <img src="/placeholdermap.webp" alt="" />
-                            <div className="px-2 py-4 md:p-4">
-                                <div className="font-Lora font-bold uppercase text-lg md:text-xl lg:text-2xl">Nama Makanan</div>
-                                <div className="font-Lora font-bold text-sm flex items-center gap-x-1 md:text-base lg:text-lg">
-                                    <div>5.0</div>
-                                    <div className="flex text-[#FFBD16]">
-                                        <TiStarFullOutline />
-                                        <TiStarFullOutline />
-                                        <TiStarFullOutline />
-                                        <TiStarFullOutline />
-                                        <TiStarFullOutline />
-                                    </div>
-                                </div>
-                                <div className="mt-9 flex justify-around">
-                                    <PiCowBold />
-                                    <PiCowBold />
-                                    <PiCowBold />
-                                    <PiCowBold />
-                                </div>
-                            </div>
-                        </Link>
-
-      
+                        <FoodCard />
+                        <FoodCard />
+                        <FoodCard />
+                        <FoodCard />
                     </div>
                     <div className="border-b-2 border-[#D71515] uppercase font-Lora font-bold self-center mt-4 text-lg">lebih banyak</div>           
                 </div>
                 <div className="text-[#4A3521] my-5 flex flex-col">
                     <div className="font-Lora font-bold text-xl md:text-2xl lg:text-3xl lg:self-center">Tempat Makan Wajib di <span className="text-[#D71515]">Nama Daerah</span></div>
-                    <div className=" flex gap-4 overflow-auto lg:hidden">
-                        <a href="" className="flex flex-col items-start justify-center w-60 my-4 flex-shrink-0 bg-white">
-                            <img src="/placeholdermap.webp" alt="" className="w-full h-full object-cover"/>
-                            <div className="px-2 py-4">
-                                <div className="font-Lora text-[#D71515] font-bold uppercase text-xl">nama restaurant</div>
-                                <div className="mt-3 flex gap-x-1 items-center">
-                                    <MdOutlineLocationOn className="text-6xl"/> 
-                                    <div className="text-sm/4 font-Montserrat">Jln.Taman Royal 3 Blok A 11/11 ,Cipondoh,Tangerang</div>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="" className="flex flex-col items-start justify-center w-60 my-4 flex-shrink-0 bg-white">
-                            <img src="/placeholdermap.webp" alt="" className="w-full h-full object-cover"/>
-                            <div className="px-2 py-4">
-                                <div className="font-Lora text-[#D71515] font-bold uppercase text-xl">nama restaurant</div>
-                                <div className="mt-3 flex gap-x-1 items-center">
-                                    <MdOutlineLocationOn className="text-6xl"/> 
-                                    <div className="text-sm/4 font-Montserrat">Jln.Taman Royal 3 Blok A 11/11 ,Cipondoh,Tangerang</div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div className="hidden lg:grid w-full grid-cols-4 place-content-between gap-4 ">
-                        <a href="" className="flex flex-col items-start justify-center my-4 flex-shrink-0 bg-white row-span-1">
-                            <img src="/placeholdermap.webp" alt="" className="w-full h-full object-cover"/>
-                            <div className="p-4">
-                                <div className="font-Lora text-[#D71515] font-bold uppercase text-2xl">nama restaurant</div>
-                                <div className="mt-3 flex gap-x-1 items-center">
-                                    <MdOutlineLocationOn className="text-6xl"/> 
-                                    <div className="text-base/4 font-Montserrat">Jln.Taman Royal 3 Blok A 11/11 ,Cipondoh,Tangerang</div>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="" className="flex flex-col items-start justify-center my-4 flex-shrink-0 bg-white row-span-1">
-                            <img src="/placeholdermap.webp" alt="" className="w-full h-full object-cover"/>
-                            <div className="p-4">
-                                <div className="font-Lora text-[#D71515] font-bold uppercase text-2xl">nama restaurant</div>
-                                <div className="mt-3 flex gap-x-1 items-center">
-                                    <MdOutlineLocationOn className="text-6xl"/> 
-                                    <div className="text-base/4 font-Montserrat">Jln.Taman Royal 3 Blok A 11/11 ,Cipondoh,Tangerang</div>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="" className="flex flex-col items-start justify-center my-4 flex-shrink-0 bg-white row-span-1">
-                            <img src="/placeholdermap.webp" alt="" className="w-full h-full object-cover"/>
-                            <div className="p-4">
-                                <div className="font-Lora text-[#D71515] font-bold uppercase text-2xl">nama restaurant</div>
-                                <div className="mt-3 flex gap-x-1 items-center">
-                                    <MdOutlineLocationOn className="text-6xl"/> 
-                                    <div className="text-base/4 font-Montserrat">Jln.Taman Royal 3 Blok A 11/11 ,Cipondoh,Tangerang</div>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="" className="flex flex-col items-start justify-center my-4 flex-shrink-0 bg-white row-span-1">
-                            <img src="/placeholdermap.webp" alt="" className="w-full h-full object-cover"/>
-                            <div className="p-4">
-                                <div className="font-Lora text-[#D71515] font-bold uppercase text-2xl">nama restaurant</div>
-                                <div className="mt-3 flex gap-x-1 items-center">
-                                    <MdOutlineLocationOn className="text-6xl"/> 
-                                    <div className="text-base/4 font-Montserrat">Jln.Taman Royal 3 Blok A 11/11 ,Cipondoh,Tangerang</div>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="" className="flex flex-col items-start justify-center my-4 flex-shrink-0 bg-white row-span-1">
-                            <img src="/placeholdermap.webp" alt="" className="w-full h-full object-cover"/>
-                            <div className="p-4">
-                                <div className="font-Lora text-[#D71515] font-bold uppercase text-2xl">nama restaurant</div>
-                                <div className="mt-3 flex gap-x-1 items-center">
-                                    <MdOutlineLocationOn className="text-6xl"/> 
-                                    <div className="text-base/4 font-Montserrat">Jln.Taman Royal 3 Blok A 11/11 ,Cipondoh,Tangerang</div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+                    <RestoCityCard />
                     <div className="hidden lg:block border-b-2 border-[#D71515] uppercase font-Lora font-bold self-center mt-4 text-lg">lebih banyak</div>                  
                 </div>
             </div>
