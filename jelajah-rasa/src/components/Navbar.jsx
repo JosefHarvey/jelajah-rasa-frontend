@@ -7,7 +7,9 @@ import Forminput from "./Forminput";
 import Register from "../pages/Register";
 import Login from "../pages/Login";
 
+
 export default function Navbar(){
+    const [user,setUser] = useState(null)
     const[isMenuOpen, setIsMenuOpen] = useState(false)
     const[isModalOpen,setIsModalOpen] = useState(false)
     const [isRegisterOpen, setIsRegisterOpen] = useState(false);
@@ -17,13 +19,9 @@ export default function Navbar(){
         { href: "/Map", title: "Peta"},
         { href: "#", title: "Tentang Kami"}
     ]
-
+    
     const handleModalOpen =() => {
         setIsModalOpen(true)
-    }
-
-    const handleOpenRegister = () => {
-        setIsRegisterOpen(true);
     }
 
         const switchToRegister = () => {
@@ -31,14 +29,11 @@ export default function Navbar(){
         setIsRegisterOpen(true);
     }
 
-    const switchToLogin = () => {
-        setIsRegisterOpen(false);
-        setIsLoginOpen(true);
-    }
+
 
     return(
         <>
-            <div className="sticky top-0  z-20 bg-[#F5F0E8]">
+            <div className="sticky top-0  z-500 bg-[#F5F0E8]">
                 <div className="font-Lora flex justify-between items-center pl-[8px] pr-[12px]  text-[#4A3521] shadow-lg md:px-10 ">
                     <button onClick={() => setIsMenuOpen(true)} className="text-xl text-[#AAAAAA] md:hidden">
                         <RxHamburgerMenu />

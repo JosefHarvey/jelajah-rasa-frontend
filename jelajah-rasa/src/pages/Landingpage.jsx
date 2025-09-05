@@ -6,7 +6,11 @@ import { Link } from 'react-router-dom';
 import { useState } from "react";
 
 export default function Landingpage (){
-
+    const featuredArticle = {
+        id: 1,
+        name: "Rendang",
+        slug: "rendang-padang" // Atau Anda bisa menggunakan slug
+    };
 
     return(
         <>
@@ -47,8 +51,8 @@ export default function Landingpage (){
                     </div>
 
                     <div className="font-Montserrat text-sm/4 mt-1 md:hidden">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat...</div>
-                    <Link to={"/Foodpage"} className="hidden font-Montserrat text-sm/4 mt-1 md:text-xl md:block">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat...</Link>
-                    <Link to={"/Foodpage"} className="inline-block font-Montserrat mt-2 uppercase text-base border-b-2 border-[#D71515] font-medium w-60 md:hidden">baca selengkapnya</Link>
+                    <Link to={`/Foodpage/${featuredArticle.id}`} className="hidden font-Montserrat text-sm/4 mt-1 md:text-xl md:block">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat...</Link>
+                    <Link to={`/Foodpage/${featuredArticle.id}`} className="inline-block font-Montserrat mt-2 uppercase text-base border-b-2 border-[#D71515] font-medium w-60 md:hidden">baca selengkapnya</Link>
                     <div className="grid grid-cols-2 gap-x-2 gap-y-1  w-full mt-3 md:hidden">
                         <div className="col-span-2 row-span-1 overflow-hidden">
                             <img src="/placeholdermap.webp" alt="" className="h-full w-full object-cover"/>

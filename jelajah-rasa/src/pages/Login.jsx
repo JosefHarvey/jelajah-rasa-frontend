@@ -8,6 +8,7 @@ export default function Login ({ isOpen, onClose, onSwitchToRegister }) {
     email: '',
     password: '',
   });
+  const [errorMessage, setErrorMessage] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
 
@@ -15,11 +16,34 @@ export default function Login ({ isOpen, onClose, onSwitchToRegister }) {
     const { name, value } = e.target;
     setFormData(prevState => ({ ...prevState, [name]: value }));
   };
+   
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    console.log('Data Registrasi:', formData);
+    try{
+      const response = await fetch("http://localhost:3000/api/auth/login",{
+        method: "POST",
+        headers: {
+                'Content-Type': 'application/json',
+            },
+        body: JSON.stringify({
+          email: formData.email,
+          password: formData.password
+        })
+      })
+      if (response.ok) {
+            const data = await response.json();
+            console.log("login Berhasil:", data);
+        } else {
+            console.error("login Gagal:", response.statusText);
+        }
+    }
+    catch(error){
+      console.error("login error:", error);
+      setErrorMessage("Terjadi kesalahan. Coba lagi.");
+    }
+    onClose(); // Menutup modal setelah submit
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Data Login:', formData);
-    // Logika untuk mengirim data login ke backend
     onClose(); // Menutup modal setelah login berhasil
   };
 

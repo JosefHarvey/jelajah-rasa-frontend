@@ -1,20 +1,20 @@
 import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import L from 'leaflet';
 import { useState, useEffect } from 'react';
 
 
-import customMarkerIconUrl from "/rendang.png";
+
+const createCustomIcon = (imageUrl) => {
+  return new L.Icon({
+    iconUrl: imageUrl, 
+    iconSize: [80, 80],
+    iconAnchor: [30, 60],
+    popupAnchor: [0, -60]
+  });
+};
 
 
-const customMarkerIcon = new L.Icon({
-  iconUrl: customMarkerIconUrl,
-  iconSize: [60, 60],   // Ukuran ikon sedikit dikecilkan untuk mobile
-  iconAnchor: [30, 60],   // Setengah lebar, tinggi penuh
-  popupAnchor: [0, -60]
-});
-
-// Hook kustom untuk mendeteksi ukuran layar (opsional tapi sangat berguna)
 function useWindowSize() {
   const [size, setSize] = useState([window.innerWidth, window.innerHeight]);
   useEffect(() => {
@@ -25,47 +25,89 @@ function useWindowSize() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
   return size;
+
+
 }
 
 export default function Map() {
-  const position = [-0.945567, 100.3641]; // Koordinat Rendang
-  const [width] = useWindowSize(); // Ambil lebar layar saat ini
+    const [width] = useWindowSize(); 
+    const [pins, setPins] = useState([])
+    const [article, setArticle] = useState(null)
+    const [error, setError] = useState(null)
+    const {id} = useParams()
+    const indonesiaBounds = [
+    [6.9, 95.0],  
+    [-11.0, 141.0]  
+  ];
 
-  // Tentukan level zoom berdasarkan lebar layar
-  const getZoomLevel = () => {
-    if (width < 768) { 
-      return 4.5; 
+    const getZoomLevel = () => {
+        if (width < 768) { 
+        return 4.5; 
+        }
+        return 5.5; 
+    };
+    
+  useEffect(() =>{
+    fetch('/dummy-api.json')
+    .then(Response => Response.json())
+    .then(data =>{
+        setPins(data.mapPins)
+    })
+    .catch(error => {
+        console.error("Gagal memuat data" , error)
+    })
+  }, [])
+
+    useEffect(() => {
+    const fetchArticle = async () => {
+        try{
+            const response = await fetch(`http://localhost:3000/api/foods/${id}`)
+            
+        if (!response.ok){
+            throw new Error(`HTTP error! status : ${response.status}`)
+        }
+        const data = await response.json()
+        setArticle(data)
+       
+        } catch(error){
+            setError(error.message)
+            console.error("gagal melakukan fetch data: ", error)
+        }
+      }
+      if (id) {
+        fetchArticle();
     }
-    return 5.5; 
-  };
-
+    },[id])
+    
+  
   return (
-    // Gunakan class Tailwind untuk ukuran, bukan inline style
     <MapContainer
-      center={[-2.5489, 118.0149]} // Tetap berpusat di Indonesia
-      zoom={getZoomLevel()} // Gunakan zoom level yang dinamis
+      center={[-2.5489, 118.0149]} 
+      zoom={getZoomLevel()} 
       scrollWheelZoom={true}
-      className="h-screen w-full" // Cara standar Tailwind untuk full screen
+      className="h-screen w-full" 
+      maxBounds={indonesiaBounds} 
+      minZoom={5}    
     >
       <TileLayer
-        attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+        url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
       />
       
-      <Marker position={position} icon={customMarkerIcon}>
-        <Popup>
-          <div className="text-center">
-            {/* Ganti dengan gambar thumbnail yang relevan */}
-            <img src="/rendang.png" alt="Rendang" className="w-24 h-24 object-cover mx-auto rounded-md" />
-            <h3 className="font-bold my-2">Rendang</h3>
-            <Link to={"/Foodpage"} className="text-blue-600 hover:underline">
-              Lihat Detail
-            </Link>
-          </div>
-        </Popup>
-      </Marker>
-      
-      {/* Anda bisa me-looping data pin lainnya di sini */}
+      {pins.map(pin => (
+        <Marker key={pin.id} position={pin.koordinat} icon={createCustomIcon(pin.gambarUrl)}>
+            <Popup>
+                <div className="text-center">
+                <img src={pin.gambarUrl}alt={pin.nama} className="w-24 h-24 object-cover mx-auto rounded-md" />
+                <h3 className="font-bold my-2">{pin.nama}</h3>
+                <Link to={pin.slug} className="text-blue-600 hover:underline">
+                    Lihat Detail
+                </Link>
+                </div>
+            </Popup>
+        </Marker>
+      ))
+      }
 
     </MapContainer>
   );

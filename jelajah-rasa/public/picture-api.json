@@ -1,0 +1,10 @@
+{
+   "foodPicture": [
+    {
+        "id":1,
+        "nama":"Rendang",
+        "heroUrl":"/rendangHero.jpg",
+        "mapUrl":"/sumateraBaratMap.png"
+    }
+   ] 
+}

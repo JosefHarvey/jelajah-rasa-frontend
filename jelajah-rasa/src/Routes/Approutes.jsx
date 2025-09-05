@@ -13,7 +13,7 @@ export default function Approutes () {
         <Routes>
             <Route path="/" element={<Landingpage />}/>
             <Route path="/Citypage" element={<Citypage />} />
-            <Route path="/Foodpage" element={<Foodpage/>}/>
+            <Route path="/Foodpage/:id" element={<Foodpage/>}/>
             <Route path="/Profile" element={<Profilepage />}/>
             <Route path="/Map" element={<Map />} />
         </Routes>
