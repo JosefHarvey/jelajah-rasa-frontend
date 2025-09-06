@@ -34,8 +34,8 @@ export default function Footer (){
                     </div>
                 </div>
                 <div className="flex gap-23 items-center text-sm font-medium md:hidden lg:hidden">
-                    <Link to={""} >Tentang Kami</Link>
-                    <Link to={""} >Jelajah Peta</Link>
+                    <Link to={"/About"} >Tentang Kami</Link>
+                    <Link to={"/Map"} >Jelajah Peta</Link>
                 </div>
             </div>
             <hr className="text-[#AAAAAA]/15 my-5 mb-9 md:hidden lg:hidden"/>

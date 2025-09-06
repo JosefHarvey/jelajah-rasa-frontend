@@ -1,10 +1,14 @@
-{
-   "foodPicture": [
-    {
-        "id":1,
-        "nama":"Rendang",
-        "heroUrl":"/rendangHero.jpg",
-        "mapUrl":"/sumateraBaratMap.png"
-    }
-   ] 
-}
+[
+  {
+    "id": 1,
+    "nama": "Rendang" ,
+    "heroUrl": "/rendangHero.jpg",
+    "mapUrl": "/sumateraBaratMap.png"
+  },
+  {
+    "id": 2,
+    "nama": "Sate Maranggi",
+    "heroUrl": "/sateMaranggiHero.png",
+    "mapUrl": "/sumateraBaratMap.png"
+  }
+]

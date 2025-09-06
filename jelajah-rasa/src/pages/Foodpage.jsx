@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { TiStarFullOutline } from "react-icons/ti";
 import { useEffect, useState } from "react";
 import RestoFoodCard from "../components/RestoFoodCard";
@@ -7,6 +7,7 @@ import Commentform from "../components/CommentForm";
 import { useInView } from 'react-intersection-observer';
 import { IoBookOutline, IoFlameOutline, IoTrophyOutline } from 'react-icons/io5'
 import Averagerating from "../components/Averagerating";
+import { useAuth } from "../Authcontext";
 
 export default function Foodpage (){
     const [activeClick, setActiveSection] = useState('overview')
@@ -16,38 +17,38 @@ export default function Foodpage (){
     const [error, setError] = useState(null)
     const [picture, setPicture] = useState([])
     const {id} = useParams();
-    const [combinedData, setCombinedData] = useState([])
+    const {isLoggedIn} = useAuth()
 
 
     const handleModalOpen =() => {
-        setIsModalOpen(true)
-    }
+        if (isLoggedIn) {
+        setIsModalOpen(true);
+        } else {
+        alert("Anda harus login untuk dapat memberikan komentar.");  
+        }
+    };
     const handleNavClick = (section) => {
         setActiveSection(section)
     }
 
-    // const fetchAndCombineData = async () => {
-    //     try{
-    //         const [articlesResponse, picturesResponse] = await Promise.all([
-    //             fetch(`http://localhost:3000/api/foods/${id}`),
-    //             fetch('/picture-api.json')
-    //         ])
+    const {ref: overview, inView: overviewInView} = useInView({threshold: 0.5})
+    const {ref: restaurant, inView: restaurantInView} = useInView({threshold: 0.5})
+    const {ref: comment, inView: commentInView} = useInView({threshold: 0.5})
 
-    //         if(!articlesResponse||!picturesResponse) {
-    //             throw new Error('Gagal mengambil salah satu data')
-    //         }
-
-    //         const articlesFromDB = await articlesResponse.json()
-    //         const pictureFromJSON = await picturesResponse.json()
-
-    //         const heroPage = new 
-    //     }
-    // }
+    useEffect(() => {
+       if(overviewInView){
+        setActiveSection('overview')
+       } else if(restaurantInView){
+        setActiveSection('Tempat Mencicipi')
+       }else if(commentInView){
+        setActiveSection('komentar')
+       }
+    },[commentInView, restaurantInView, overviewInView])
     
     useEffect(() => {
     const fetchArticle = async () => {
         try{
-            const response = await fetch(`http://localhost:3000/api/foods/${id}`)
+            const response = await fetch(`http://localhost:3000/api/foods/${id}  `)
             
         if (!response.ok){
             throw new Error(`HTTP error! status : ${response.status}`)
@@ -66,15 +67,34 @@ export default function Foodpage (){
     },[id])
 
     useEffect(() => {
+        // 1. Ambil seluruh data dari file picture-api.json
         fetch('/picture-api.json')
-        .then(Response => Response.json())
-        .then(data => {
-            setPicture(data.foodPicture)
+        .then(response => {
+            if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => { // 'data' sekarang adalah sebuah ARRAY
+            console.log("Data gambar yang diterima:", data);
+
+            // Ubah 'id' dari URL (yang berupa string) menjadi angka
+            const idDariUrl = parseInt(id); 
+
+            // 2. Gunakan metode .find() untuk mencari objek yang id-nya cocok
+            const foundPicture = data.find(pic => pic.id === idDariUrl);
+
+            // 3. Simpan objek yang ditemukan ke dalam state
+            if (foundPicture) {
+            setPicture(foundPicture);
+            } else {
+            console.error(`Gambar dengan id ${id} tidak ditemukan di dalam file JSON.`);
+            }
         })
         .catch(error => {
-            console.error("Gagal memuat data" , error)
-        })
-    },[])
+            console.error("Gagal memuat atau mem-parsing data gambar:", error);
+        });
+    }, [id]); // Tetap gunakan [id] sebagai dependency
     
 
     if (error) {
@@ -86,28 +106,16 @@ export default function Foodpage (){
     }
     
     return(
-        <>
-            {
-                picture.map(pict => (
-                <div key={pict.id} className="lg:hidden">
-                    <img src={pict.heroUrl} alt="" className="md:h-100 lg:h-125 w-full object-cover"/>
+        <>     
+                <div  className="lg:hidden">
+                    <img src={picture.heroUrl} alt="" className="md:h-100 lg:h-125 w-full object-cover"/>
                 </div>      
-                ))
-            }
-
-
             <div className="my-5 mx-2 text-[#4A3521] font-Montserrat md:mx-10 md:my-5 lg:mx-20 lg:my-10 ">
                 <div className="flex justify-between lg:shadow-xl/lg  lg:p-25 lg:flex-col ">
-                    {
-                        picture.map(pict => (
+    
                         <div className="hidden lg:block w-full mb-25">
-                            <img src={pict.heroUrl} alt="" className="h-205 w-full object-cover"/>
-                        </div>
-                        ))
-                    }    
-                        
-                        
-
+                            <img src={picture.heroUrl} alt="" className="h-205 w-full object-cover"/>
+                        </div> 
                             <div className="lg:flex lg:justify-between items-center">
                                 <div className="font-Lora text-2xl capitalize font-bold text-[#D71515] md:text-4xl lg:text-5xl">
                                     {article.name}
@@ -117,9 +125,7 @@ export default function Foodpage (){
                                 </Link>
                             </div>
 
-
-                      
-                            <div id="overview" className="hidden lg:flex lg:justify-between items-start gap-30 my-20">
+                            <div id="overview"  ref={overview} className="hidden lg:flex lg:justify-between items-start gap-30 my-20">
                                 <div className="md: max-w-3xl mx-auto space-y-6">
                                     <div>
                                         <h2 className="font-Lora text-3xl font-bold text-[#4A3521] mb-4">
@@ -154,31 +160,22 @@ export default function Foodpage (){
                                     </div>
 
                                 </div>
-                                {
-                                  picture.map(pict => (
                                     <div className="hidden lg:block max-w-125  flex-1">
-                                        <img src={pict.mapUrl} alt="" className="w-full object-cover"/>
+                                        <img src={picture.mapUrl} alt="" className="w-full object-cover"/>
                                     </div>   
-                                  ))  
-                                }
 
                             </div>            
         
 
                         <div className="flex flex-col items-start lg:gap-y-5">
                             <div className="font-Lora font-bold flex  gap-1 items-center md:text-xl lg:text-4xl">
-                                <p>5.0</p>
-                                <div className="text-[#FFBD16] flex">
-                                    <TiStarFullOutline />
-                                    <TiStarFullOutline />
-                                    <TiStarFullOutline />
-                                    <TiStarFullOutline />
-                                    <TiStarFullOutline />
-                                </div>
+                                <p className="text-2xl font-bold md:text-3xl">{article.averageRating}</p>
+                                <Averagerating rating={article.averageRating}/>
                             </div>
-                            <button className="border uppercase text-sm px-4 rounded-2xl text-[#aaaaaa] md:text-base">
+                            <button className="border uppercase text-sm px-4 rounded-2xl text-[#aaaaaa] md:text-base" onClick={() => handleModalOpen(true)}>
                                 beri nilai
                             </button>
+                            {isModalOpen && <Commentform isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}/>}
                         </div>     
                 </div>
                 <hr className="text-[#AAAAAA] my-5 lg:hidden"/>
@@ -187,7 +184,7 @@ export default function Foodpage (){
                     <a href={"#Tempat Mencicipi"} onClick={() => handleNavClick('Tempat Mencicipi')} className={`transition-all duration-300 ${activeClick === 'Tempat Mencicipi'? 'border-b-2 border-[#D71515] font-bold py-1' :''}`}>Tempat Mencicipi</a>
                     <a href={"#komentar"} onClick={() => handleNavClick('komentar')} className={`transition-all duration-300 ${activeClick === 'komentar'? 'border-b-2 border-[#D71515] font-bold py-1' :''}`}>Komentar</a>
                 </div>
-                <div id="overview" className=" text-sm/4 my-2 flex flex-col gap-y-2 md:text-base/5 lg:hidden">
+                <div id="overview" ref={overview} className=" text-sm/4 my-2 flex flex-col gap-y-2 md:text-base/5 lg:hidden">
                     <div className="md: max-w-3xl mx-auto space-y-6">
                         <div>
                             <h2 className="font-Lora text-3xl font-bold text-[#4A3521] mb-4">
@@ -223,7 +220,7 @@ export default function Foodpage (){
 
                     </div>
                 </div>
-                <div id="Tempat Mencicipi" className="">
+                <div id="Tempat Mencicipi" ref={restaurant} className="">
                     <div className="flex flex-col items-center font-Lora font-bold md:my-5 lg:my-10">
                         <div className="text-base md:text-lg lg:text-2xl">Tempat Mencicipi</div>
                         <div className="uppercase text-2xl md:text-3xl lg:text-4xl lg:mt-2">
@@ -234,7 +231,7 @@ export default function Foodpage (){
                         <RestoFoodCard resto={article}/>
                     </div>
                 </div>
-                <div id="komentar" className="">
+                <div id="komentar" ref={comment} className="">
                     <div className="font-Lora flex flex-col ">
                         <div className="font-bold uppercase text-2xl self-center md:text-3xl lg:text-4xl lg:mt-10">apa kata mereka ?</div>
                     </div>

@@ -2,12 +2,15 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { RxCross1 } from 'react-icons/rx';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { useAuth } from '../Authcontext';
 
 export default function Login ({ isOpen, onClose, onSwitchToRegister }) {
     const [formData, setFormData] = useState({
     email: '',
     password: '',
   });
+  const auth = useAuth();
+
   const [errorMessage, setErrorMessage] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
@@ -19,32 +22,19 @@ export default function Login ({ isOpen, onClose, onSwitchToRegister }) {
    
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log('Data Registrasi:', formData);
+  
     try{
-      const response = await fetch("http://localhost:3000/api/auth/login",{
-        method: "POST",
-        headers: {
-                'Content-Type': 'application/json',
-            },
-        body: JSON.stringify({
-          email: formData.email,
-          password: formData.password
-        })
-      })
-      if (response.ok) {
-            const data = await response.json();
-            console.log("login Berhasil:", data);
-        } else {
-            console.error("login Gagal:", response.statusText);
-        }
+    await auth.login(formData.email, formData.password)
+     console.log("4. Proses login di context selesai.");
+     onClose();
     }
     catch(error){
       console.error("login error:", error);
       setErrorMessage("Terjadi kesalahan. Coba lagi.");
     }
-    onClose(); // Menutup modal setelah submit
+    onClose(); 
 
-    onClose(); // Menutup modal setelah login berhasil
+    onClose(); 
   };
 
   if (!isOpen) return null;

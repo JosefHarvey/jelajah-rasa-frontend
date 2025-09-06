@@ -1,5 +1,6 @@
 import { TiStarFullOutline } from "react-icons/ti";
 import { IoPersonCircleSharp } from "react-icons/io5";
+import Averagerating from "./Averagerating";
 export default function Comment ({article}){
     return (
        <>
@@ -14,11 +15,7 @@ export default function Comment ({article}){
                     <p className="font-Lora capitalize font-bold text-lg md:text-xl lg:text-2xl">{comment.user.firstName} {comment.user.lastName}</p>
                     <div className="flex items-center gap-x-2 -my-1 lg:my-2">
                         <div className="text-[#FFBD16] flex lg:text-2xl">
-                            <TiStarFullOutline />
-                            <TiStarFullOutline />
-                            <TiStarFullOutline />
-                            <TiStarFullOutline />
-                            <TiStarFullOutline />
+                            <Averagerating rating={comment.ratingValue}/>
                         </div>
                         <p className="text-[#AAAAAA] text-sm capitalize md:text-base lg:text-lg">{new Date(comment.createdAt).toLocaleDateString("id-ID",{
                             day: 'numeric',

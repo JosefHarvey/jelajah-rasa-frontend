@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { RxCross1 } from 'react-icons/rx'; // Ikon close
 import { FaEye, FaEyeSlash } from 'react-icons/fa'; // Ikon untuk password
+import { useAuth } from '../Authcontext';
 
 
 export default function Register({ isOpen, onClose }) {
@@ -11,6 +12,7 @@ export default function Register({ isOpen, onClose }) {
     lastName: '',
     password: '',
   });
+  const auth = useAuth()
   
   // State untuk menampilkan/menyembunyikan password
   const [showPassword, setShowPassword] = useState(false);

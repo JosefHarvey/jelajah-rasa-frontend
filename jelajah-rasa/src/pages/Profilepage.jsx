@@ -2,9 +2,37 @@ import { IoPersonCircleSharp } from "react-icons/io5";
 import { MdOutlineEdit } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { TiStarFullOutline } from "react-icons/ti";
+import { useEffect, useState } from "react";
 
 export default function Profilepage () {
-   
+   const [user, setUser] = useState([])
+   const [setError] = useState(null)
+   const token = localStorage.getItem('token');
+   useEffect(() => {
+        const fetchProfile = async () => {
+            try{
+                const response = await fetch('http://localhost:3000/api/users/me',{
+                    headers: {
+                    'Authorization': `Bearer ${token}`
+                    }
+                })
+            
+            if (!response.ok){
+               throw new Error(`HTTP error! status : ${response.status}`)
+            }
+            const data = await response.json()
+            console.log("Data profile", data)
+            setUser(data)
+            }
+            catch(error){
+                setError(error.message)
+                console.error("gagal melakukan fetch data: ", error)
+            }
+        }
+        fetchProfile()
+    },[])
+
+
     return (
         <div className="my-5 mx-2 text-[#4A3521] font-Montserrat md:mx-10 md:my-5 lg:mx-20 lg:my-10">
             <div className="lg:flex lg:flex-col lg:justify-center lg:items-center lg:py-10">
@@ -14,8 +42,8 @@ export default function Profilepage () {
                             <IoPersonCircleSharp />
                         </div>
                         <div className="font-Lora text-xl font-bold text-center"> 
-                            <div>First Name</div>
-                            <div>Last Name</div>
+                            <div>{user.firstName}</div>
+                            <div>{user.lastName}</div>
                         </div>
                     </div>
                     <Link to={""} className="text-2xl text-gray-400 lg:absolute lg:top-4 lg:right-4">

@@ -1,30 +1,60 @@
 import { useState } from 'react';
 import { RxCross1 } from 'react-icons/rx';
 import { FaStar } from 'react-icons/fa';
+import { useParams } from 'react-router-dom'; // 2. Impor useParams untuk mendapatkan foodId
+import { useAuth } from '../Authcontext';
 
 export default function CommentModal({ isOpen, onClose }) {
   const [rating, setRating] = useState(0);
   const [hoverRating, setHoverRating] = useState(0);
   const [comment, setComment] = useState('');
+  
+  const { token } = useAuth(); 
+  const { id: foodId } = useParams(); 
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (rating === 0) {
       alert("Mohon berikan rating bintang terlebih dahulu.");
       return;
     }
-    console.log({ rating, comment });
-    // Logika untuk mengirim data ke backend
-    onClose(); // Menutup modal setelah submit
+
+    try {
+      const response = await fetch(`http://localhost:3000/api/foods/${foodId}/reviews`, {
+        method: "POST", 
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}` 
+        },
+
+        body: JSON.stringify({
+          value: rating,
+          content: comment
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error('Gagal mengirim komentar. Silakan coba lagi.');
+      }
+
+      const newComment = await response.json();
+      console.log('Komentar berhasil dikirim:', newComment);
+
+      // Anda bisa menambahkan fungsi untuk update UI di halaman artikel di sini
+      
+      onClose(); // Menutup modal setelah submit berhasil
+
+    } catch (error) {
+      console.error("Error saat mengirim komentar:", error);
+      alert(error.message); // Tampilkan pesan error ke pengguna
+    }
   };
 
   if (!isOpen) return null;
 
   return (
-    // Bagian 1: Struktur Modal (Overlay & Posisi)
+    // ... (kode JSX Anda untuk tampilan modal tetap sama)
     <div className="fixed inset-0 bg-black bg-opacity-60 flex justify-center items-center z-50 p-4">
-      
-      {/* Bagian 2: Kartu Modal (Konten Form) */}
       <div className="bg-white p-6 md:p-8 rounded-lg shadow-xl w-full max-w-lg relative">
         <button 
           onClick={onClose} 
@@ -33,11 +63,9 @@ export default function CommentModal({ isOpen, onClose }) {
           <RxCross1 />
         </button>
         
-        {/* Bagian 3: Isi Form Komentar */}
         <form onSubmit={handleSubmit} className="space-y-4">
           <h3 className="font-Lora font-bold text-xl text-center text-[#4A3521]">Berikan Pendapatmu!</h3>
 
-          {/* Rating Bintang Interaktif */}
           <div className="flex items-center justify-center text-3xl md:text-4xl">
             {[1, 2, 3, 4, 5].map((starValue) => (
               <button
@@ -55,7 +83,6 @@ export default function CommentModal({ isOpen, onClose }) {
             ))}
           </div>
 
-          {/* Input Komentar */}
           <div>
             <textarea 
               value={comment}
@@ -66,7 +93,6 @@ export default function CommentModal({ isOpen, onClose }) {
             />
           </div>
 
-          {/* Tombol Submit */}
           <div>
             <button
               type="submit"

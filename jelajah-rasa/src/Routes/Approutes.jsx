@@ -5,6 +5,8 @@ import Foodpage from "../pages/Foodpage";
 import Profilepage from "../pages/Profilepage";
 import Register from "../pages/Register";
 import Map from "../pages/Map";
+import AboutPage from "../pages/About";
+import ProtectedRoute from "./Proctectedroutes";
 
 
 
@@ -14,8 +16,14 @@ export default function Approutes () {
             <Route path="/" element={<Landingpage />}/>
             <Route path="/Citypage" element={<Citypage />} />
             <Route path="/Foodpage/:id" element={<Foodpage/>}/>
-            <Route path="/Profile" element={<Profilepage />}/>
+            <Route path="/Profile" 
+            element={
+                <ProtectedRoute>
+                    <Profilepage />     
+                </ProtectedRoute>
+            }/>
             <Route path="/Map" element={<Map />} />
+            <Route path="/About" element={<AboutPage />} />
         </Routes>
     )
 }

@@ -39,7 +39,7 @@ export default function Map() {
     [6.9, 95.0],  
     [-11.0, 141.0]  
   ];
-
+  
     const getZoomLevel = () => {
         if (width < 768) { 
         return 4.5; 
@@ -90,8 +90,8 @@ export default function Map() {
       minZoom={5}    
     >
       <TileLayer
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
-        url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
+        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Tiles courtesy of <a href="https://www.openstreetmap.cat" target="_blank">Breton OpenStreetMap Team</a>'
+        url='https://tile.openstreetmap.bzh/ca/{z}/{x}/{y}.png'
       />
       
       {pins.map(pin => (

@@ -1,34 +1,49 @@
 import { RxHamburgerMenu } from "react-icons/rx";
 import { MdOutlinePersonOutline } from "react-icons/md";
 import { RxCross1 } from "react-icons/rx";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import Forminput from "./Forminput";
 import Register from "../pages/Register";
 import Login from "../pages/Login";
+import { useAuth } from "../Authcontext";
+import Dropdown from "./dropdown";
 
 
 export default function Navbar(){
-    const [user,setUser] = useState(null)
+    const {user, isLoggedIn, logout} = useAuth()
+
+    console.log("STATUS DARI NAVBAR:", { user, isLoggedIn });
+
+    const navigate = useNavigate()
     const[isMenuOpen, setIsMenuOpen] = useState(false)
     const[isModalOpen,setIsModalOpen] = useState(false)
     const [isRegisterOpen, setIsRegisterOpen] = useState(false);
     const [isLoginOpen, setIsLoginOpen] = useState(false);
+    const [dropdown, setDropdown] = useState(false)
+
+    const handleClickDropdown = () => {
+        setDropdown(true)
+    }
 
     const navLinks = [
         { href: "/Map", title: "Peta"},
-        { href: "#", title: "Tentang Kami"}
+        { href: "/About", title: "Tentang Kami"}
     ]
     
+    const handleLogout = () => {
+        logout()
+        navigate('/')
+    }
+
     const handleModalOpen =() => {
         setIsModalOpen(true)
     }
 
-        const switchToRegister = () => {
+    const switchToRegister = () => {
         setIsLoginOpen(false);
         setIsRegisterOpen(true);
     }
-
 
 
     return(
@@ -52,11 +67,24 @@ export default function Navbar(){
                         </Link>
                     ))}
                     </nav>
-                    <div className="flex md:gap-2">
-                        <p className="hidden md:block capitalize">masuk</p>
-                        <button className="text-xl text-[#AAAAAA] " onClick={() => setIsLoginOpen(true)}>
-                            <MdOutlinePersonOutline />
-                        </button>
+                    <div className="flex md:gap-2 relative ">
+                        {isLoggedIn ? (
+                           <div className="flex items-center gap-2">
+                           <p className="hidden md:block capitalize">{user?.firstName }</p>
+                            <button className="text-xl text-[#AAAAAA] " onClick={() => setDropdown(true)}>
+                                <MdOutlinePersonOutline />
+                            </button>
+                           </div>
+                            ) :(
+                            <>
+                                <p className="hidden md:block capitalize">masuk</p>
+                                <button className="text-xl text-[#AAAAAA] " onClick={() => setIsLoginOpen(true)}>
+                                <MdOutlinePersonOutline />
+                                </button>
+                            </>
+                            )
+                        }
+                        <Dropdown isOpen={dropdown} onClose={() => setDropdown(false)} />
                         <Login isOpen={isLoginOpen} onClose={() => setIsLoginOpen(false)} onSwitchToRegister={switchToRegister}/>
                         <Register isOpen={isRegisterOpen} onClose={() => setIsRegisterOpen(false)}/>
                     </div>
