@@ -1,16 +1,27 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { RxCross1 } from 'react-icons/rx';
 import { FaStar } from 'react-icons/fa';
 import { useParams } from 'react-router-dom'; // 2. Impor useParams untuk mendapatkan foodId
 import { useAuth } from '../Authcontext';
 
-export default function CommentModal({ isOpen, onClose }) {
+export default function CommentModal({ isOpen, onClose, initialData  }) {
   const [rating, setRating] = useState(0);
   const [hoverRating, setHoverRating] = useState(0);
   const [comment, setComment] = useState('');
   
   const { token } = useAuth(); 
   const { id: foodId } = useParams(); 
+
+  useEffect(() => {
+    if (initialData) {
+      setRating(initialData.ratingValue || 0);
+      setComment(initialData.content || '');
+    } else {
+      setRating(0);
+      setComment('');
+    }
+  }, [initialData, isOpen]);
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,14 +30,19 @@ export default function CommentModal({ isOpen, onClose }) {
       return;
     }
 
+    const isEditing = !!initialData;
+    const method = isEditing ? 'PUT' : 'POST';
+    const url = isEditing
+      ?`http://localhost:3000/api/foods/${foodId}/reviews` // URL untuk update
+      : `http://localhost:3000/api/foods/${foodId}/reviews`; // URL untuk buat baru
+
     try {
-      const response = await fetch(`http://localhost:3000/api/foods/${foodId}/reviews`, {
-        method: "POST", 
+      const response = await fetch(url, {
+        method: method,
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}` 
         },
-
         body: JSON.stringify({
           value: rating,
           content: comment
@@ -37,23 +53,20 @@ export default function CommentModal({ isOpen, onClose }) {
         throw new Error('Gagal mengirim komentar. Silakan coba lagi.');
       }
 
-      const newComment = await response.json();
-      console.log('Komentar berhasil dikirim:', newComment);
-
-      // Anda bisa menambahkan fungsi untuk update UI di halaman artikel di sini
+      const responseData = await response.json();
+      console.log('Komentar berhasil diproses:', responseData);
       
       onClose(); // Menutup modal setelah submit berhasil
 
     } catch (error) {
       console.error("Error saat mengirim komentar:", error);
-      alert(error.message); // Tampilkan pesan error ke pengguna
+      alert(error.message);
     }
   };
 
   if (!isOpen) return null;
 
   return (
-    // ... (kode JSX Anda untuk tampilan modal tetap sama)
     <div className="fixed inset-0 bg-black bg-opacity-60 flex justify-center items-center z-50 p-4">
       <div className="bg-white p-6 md:p-8 rounded-lg shadow-xl w-full max-w-lg relative">
         <button 
@@ -64,7 +77,9 @@ export default function CommentModal({ isOpen, onClose }) {
         </button>
         
         <form onSubmit={handleSubmit} className="space-y-4">
-          <h3 className="font-Lora font-bold text-xl text-center text-[#4A3521]">Berikan Pendapatmu!</h3>
+          <h3 className="font-Lora font-bold text-xl text-center text-[#4A3521]">
+            {initialData ? 'Edit Pendapatmu' : 'Berikan Pendapatmu!'}
+          </h3>
 
           <div className="flex items-center justify-center text-3xl md:text-4xl">
             {[1, 2, 3, 4, 5].map((starValue) => (
@@ -99,7 +114,7 @@ export default function CommentModal({ isOpen, onClose }) {
               disabled={!rating}
               className="w-full py-2 px-4 rounded-md font-bold text-white bg-[#A9442A] hover:bg-opacity-90 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed"
             >
-              Kirim Penilaian
+              {initialData ? 'Update Penilaian' : 'Kirim Penilaian'}
             </button>
           </div>
         </form>

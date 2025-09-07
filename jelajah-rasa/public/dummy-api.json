@@ -5,7 +5,7 @@
       "nama": "Rendang",
       "kota": "Padang",
       "koordinat": [-0.9455, 100.3641],
-      "gambarUrl": "/rendang.png",
+      "gambarUrl": "images/Pins/rendang.png",
       "slug": "/Foodpage/1"
     },
     {
@@ -13,7 +13,7 @@
       "nama": "Sate Maranggi",
       "kota": "Purwakarta",
       "koordinat": [-6.5552, 107.4439],
-      "gambarUrl": "/sateMaranggi.png",
+      "gambarUrl": "/images/Pins/sateMaranggi.png",
       "slug": "/Foodpage/2"
     },
     {
@@ -21,7 +21,7 @@
       "nama": "Laksa Tangerang",
       "kota": "Tangerang",
       "koordinat": [-6.1783, 106.6319],
-      "gambarUrl": "/laksaTangerang.png",
+      "gambarUrl": "/images/Pins/laksaTangerang.png",
       "slug": "/Foodpage/3"
     },
     {
@@ -29,7 +29,7 @@
       "nama": "Kerak Telor",
       "kota": "Jakarta",
       "koordinat": [-6.2088, 106.8456],
-      "gambarUrl": "/kerakTelor.png",
+      "gambarUrl": "/images/Pins/kerakTelor.png",
       "slug": "/Foodpage/4"
     },
     {
@@ -37,7 +37,7 @@
       "nama": "Sate Lilit",
       "kota": "Denpasar",
       "koordinat": [-8.6705, 115.2126],
-      "gambarUrl": "/sateLilit.png",
+      "gambarUrl": "/images/Pins/sateLilit.png",
       "slug": "/Foodpage/5"
     },
     {
@@ -45,7 +45,7 @@
       "nama": "Soto Banjar",
       "kota": "Banjarmasin",
       "koordinat": [-3.3167, 114.5900],
-      "gambarUrl": "/sotoBanjar.png",
+      "gambarUrl": "/images/Pins/sotoBanjar.png",
       "slug": "/Foodpage/6"
     },
     {
@@ -53,7 +53,7 @@
       "nama": "Coto Makassar",
       "kota": "Makassar",
       "koordinat": [-5.1477, 119.4327],
-      "gambarUrl": "/cotoMakassar.png",
+      "gambarUrl": "/images/Pins/cotoMakassar.png",
       "slug": "/Foodpage/7"
     },
     {
@@ -61,7 +61,7 @@
       "nama": "Pempek",
       "kota": "Palembang",
       "koordinat": [-2.9761, 104.7754],
-      "gambarUrl": "/pempek.png",
+      "gambarUrl": "/images/Pins/pempek.png",
       "slug": "/Foodpage/8"
     },
     {
@@ -69,7 +69,7 @@
       "nama": "Nasi Liwet",
       "kota": "Solo",
       "koordinat": [-7.5561, 110.8318],
-      "gambarUrl": "/nasiLiwet.png",
+      "gambarUrl": "/images/Pins/nasiLiwet.png",
       "slug": "/Foodpage/9"
     },
     {
@@ -77,7 +77,7 @@
       "nama": "Papeda",
       "kota": "Jayapura",
       "koordinat": [-2.5744, 140.7000],
-      "gambarUrl": "/papeda.png",
+      "gambarUrl": "/images/Pins/papeda.png",
       "slug": "/Foodpage/10"
     },
     {
@@ -85,7 +85,7 @@
       "nama": "Ayam Taliwang",
       "kota": "Mataram",
       "koordinat": [-8.5833, 116.1167],
-      "gambarUrl": "/ayamTaliwang.png",
+      "gambarUrl": "/images/Pins/ayamTaliwang.png",
       "slug": "/Foodpage/11"
     },
     {
@@ -93,7 +93,7 @@
       "nama": "Bika Ambon",
       "kota": "Medan",
       "koordinat": [3.5952, 98.6722],
-      "gambarUrl": "/bikaAmbon.png",
+      "gambarUrl": "/images/Pins/bikaAmbon.png",
       "slug": "/Foodpage/12"
     },
     {
@@ -101,7 +101,7 @@
       "nama": "Gudeg Jogja",
       "kota": "Yogyakarta",
       "koordinat": [-7.7956, 110.3695],
-      "gambarUrl": "/gudegJogja.png",
+      "gambarUrl": "/images/Pins/gudegJogja.png",
       "slug": "/Foodpage/13"
     },
     {
@@ -109,7 +109,7 @@
       "nama": "Rawon",
       "kota": "Surabaya",
       "koordinat": [-7.2575, 112.7521],
-      "gambarUrl": "/rawon.png",
+      "gambarUrl": "/images/Pins/rawon.png",
       "slug": "/Foodpage/14"
     },
     {
@@ -117,7 +117,7 @@
       "nama": "Gohu Ikan",
       "kota": "Ternate",
       "koordinat": [0.7891, 127.3592],
-      "gambarUrl": "/gohuIkan.png",
+      "gambarUrl": "/images/Pins/gohuIkan.png",
       "slug": "/Foodpage/15"
     },
     {
@@ -125,7 +125,7 @@
       "nama": "Mie Aceh",
       "kota": "Banda Aceh",
       "koordinat": [5.5539, 95.3228],
-      "gambarUrl": "/mieAceh.png",
+      "gambarUrl": "/images/Pins/mieAceh.png",
       "slug": "/Foodpage/16"
     },
     {
@@ -133,7 +133,7 @@
       "nama": "Lumpia Semarang",
       "kota": "Semarang",
       "koordinat": [-6.9667, 110.4381],
-      "gambarUrl": "/lumpiaSemarang.png",
+      "gambarUrl": "/images/Pins/lumpiaSemarang.png",
       "slug": "/Foodpage/17"
     },
     {
@@ -141,7 +141,7 @@
       "nama": "Nasi Kuning Manado",
       "kota": "Manado",
       "koordinat": [1.4748, 124.8421],
-      "gambarUrl": "/nasiKuningManado.png",
+      "gambarUrl": "/images/Pins/nasiKuningManado.png",
       "slug": "/Foodpage/18"
     },
     {
@@ -149,8 +149,176 @@
       "nama": "Gudeg Manggar",
       "kota": "Bantul",
       "koordinat": [-7.8920, 110.3323],
-      "gambarUrl": "/gudegManggar.png",
+      "gambarUrl": "/images/Pins/gudegManggar.png",
       "slug": "/Foodpage/19"
+    },
+    {
+      "id": 20,
+      "nama": "Soto Sampit",
+      "kota": "Sampit",
+      "koordinat": [-2.5333, 112.9500],
+      "gambarUrl": "/images/Pins/sotoSampit.png",
+      "slug": "/Foodpage/20"
+    },
+    {
+      "id": 21,
+      "nama": "Nasi Bekepor",
+      "kota": "Kutai Kartanegara",
+      "koordinat": [-0.4379, 116.9810],
+      "gambarUrl": "/images/Pins/nasiBekepor.png",
+      "slug": "/Foodpage/21"
+    },
+    {
+      "id": 22,
+      "nama": "Bubur Pedas Sambas",
+      "kota": "Sambas",
+      "koordinat": [1.3592, 109.3007],
+      "gambarUrl": "/images/Pins/buburPedas.png",
+      "slug": "/Foodpage/22"
+    },
+    {
+      "id": 23,
+      "nama": "Ayam Cincane",
+      "kota": "Samarinda",
+      "koordinat": [-0.5021, 117.1536],
+      "gambarUrl": "/images/Pins/ayamCincane.png",
+      "slug": "/Foodpage/23"
+    },
+    {
+      "id": 24,
+      "nama": "Ikan Bakar Manokwari",
+      "kota": "Manokwari",
+      "koordinat": [-0.8617, 134.0584],
+      "gambarUrl": "/images/Pins/ikanBakarManokwari.png",
+      "slug": "/Foodpage/24"
+    },
+    {
+      "id": 25,
+      "nama": "Tinutuan (Bubur Manado)",
+      "kota": "Manado",
+      "koordinat": [1.4937, 124.8410],
+      "gambarUrl": "/images/Pins/tinutuan.png",
+      "slug": "/Foodpage/25"
+    },
+    {
+      "id": 26,
+      "nama": "Kaledo",
+      "kota": "Palu",
+      "koordinat": [-0.8987, 119.8707],
+      "gambarUrl": "/images/Pins/kaledo.png",
+      "slug": "/Foodpage/26"
+    },
+    {
+      "id": 27,
+      "nama": "Catemak Jagung",
+      "kota": "Kupang",
+      "koordinat": [-10.1771, 123.5971],
+      "gambarUrl": "/images/Pins/catemakJagung.png",
+      "slug": "/Foodpage/27"
+    },
+    {
+      "id": 28,
+      "nama": "Lawa",
+      "kota": "Palu",
+      "koordinat": [-0.9167, 119.8833],
+      "gambarUrl": "/images/Pins/lawa.png",
+      "slug": "/Foodpage/28"
+    },
+    {
+      "id": 29,
+      "nama": "Kue Lontar",
+      "kota": "Fakfak",
+      "koordinat": [-2.9157, 132.3061],
+      "gambarUrl": "/images/Pins/kueLontar.png",
+      "slug": "/Foodpage/29"
+    },
+    {
+      "id": 30,
+      "nama": "Gulai Ikan Patin",
+      "kota": "Jambi",
+      "koordinat": [-1.6101, 103.6131],
+      "gambarUrl": "/images/Pins/gulaiPatin.png",
+      "slug": "/Foodpage/30"
+    },
+    {
+      "id": 31,
+      "nama": "Pendap",
+      "kota": "Bengkulu",
+      "koordinat": [-3.7933, 102.2607],
+      "gambarUrl": "/images/Pins/pendap.png",
+      "slug": "/Foodpage/31"
+    },
+    {
+      "id": 32,
+      "nama": "Seruit",
+      "kota": "Bandar Lampung",
+      "koordinat": [-5.4500, 105.2667],
+      "gambarUrl": "/images/Pins/seruit.png",
+      "slug": "/Foodpage/32"
+    },
+    {
+      "id": 33,
+      "nama": "Tempoyak Ikan Patin",
+      "kota": "Palembang",
+      "koordinat": [-2.9909, 104.7566],
+      "gambarUrl": "/images/Pins/tempoyak.png",
+      "slug": "/Foodpage/33"
+    },
+    {
+      "id": 34,
+      "nama": "Gulai Belacan",
+      "kota": "Pekanbaru",
+      "koordinat": [0.5071, 101.4478],
+      "gambarUrl": "/images/Pins/gulaiBelacan.png",
+      "slug": "/Foodpage/34"
+    },
+    {
+      "id": 35,
+      "nama": "Ketupat Kandangan",
+      "kota": "Kandangan",
+      "koordinat": [-2.7848, 115.2494],
+      "gambarUrl": "/images/Pins/ketupatKandangan.png",
+      "slug": "/Foodpage/35"
+    },
+    {
+      "id": 36,
+      "nama": "Bingka Kentang",
+      "kota": "Pontianak",
+      "koordinat": [-0.0279, 109.3425],
+      "gambarUrl": "/images/Pins/bingkaKentang.png",
+      "slug": "/Foodpage/36"
+    },
+    {
+      "id": 37,
+      "nama": "Juhu Singkah",
+      "kota": "Palangkaraya",
+      "koordinat": [-2.2136, 113.9108],
+      "gambarUrl": "/images/Pins/juhuSingkah.png",
+      "slug": "/Foodpage/37"
+    },
+    {
+      "id": 38,
+      "nama": "Gangan Asam Patin",
+      "kota": "Banjarmasin",
+      "koordinat": [-3.3256, 114.5915],
+      "gambarUrl": "/images/Pins/ganganAsam.png",
+      "slug": "/Foodpage/38"
+    },
+    {
+      "id": 39,
+      "nama": "Sate Payau",
+      "kota": "Tanjung Selor",
+      "koordinat": [2.8379, 117.3653],
+      "gambarUrl": "/images/Pins/satePayau.png",
+      "slug": "/Foodpage/39"
+    },
+    {
+      "id": 40,
+      "nama": "Bubur Ancur Paddas",
+      "kota": "Berau",
+      "koordinat": [2.1500, 117.5000],
+      "gambarUrl": "/images/Pins/buburAncurPaddas.png",
+      "slug": "/Foodpage/40"
     }
   ]
 }

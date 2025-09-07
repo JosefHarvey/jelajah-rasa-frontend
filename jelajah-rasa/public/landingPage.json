@@ -1,0 +1,16 @@
+[
+    {
+        "id" : 1,
+        "nama":"Rendang",
+        "gambar1":"/images/landingPage/rendang1.jpg",
+        "gambar2":"/images/landingPage/rendang2.jpg",
+        "gambar3":"/images/landingPage/rendang3.jpeg"
+    },
+    {
+        "id" : 2,
+        "nama":"sateMaranggi",
+        "gambar1":"/images/landingPage/sateMaranggi1.jpg",
+        "gambar2":"/images/landingPage/sateMaranggi2.jpg",
+        "gambar3":"/images/landingPage/sateMaranggi3.jpeg"
+    }
+]

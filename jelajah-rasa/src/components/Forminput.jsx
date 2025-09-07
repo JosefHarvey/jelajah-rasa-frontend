@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { RxCross1 } from 'react-icons/rx';
 import ReactDOM from 'react-dom';
-
+import { provinces } from '../data/provinces';
 export default function Forminput ({ isOpen, onClose }) {
   const [formData, setFormData] = useState({
     namaMakanan: '',
@@ -23,7 +23,6 @@ export default function Forminput ({ isOpen, onClose }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Data yang Dikirim:', formData);
-    // Di sini Anda akan menambahkan logika untuk mengirim data ke backend
     onClose(); 
   };
   
@@ -45,13 +44,13 @@ export default function Forminput ({ isOpen, onClose }) {
             Kirimkan cerita Anda
           </h2>
           <p className="font-sans text-sm text-gray-500 mt-2">
-            atau hubungi kami langsung di <a href="mailto:abcdefgh123@gmail.com" className="underline">abcdefgh123@gmail.com</a>
+            atau hubungi kami langsung di <a href="mailto:editorjelajahrasa@gmail.com" className="underline">editorjelajahrasa@gmail.com</a>
           </p>
         </div>
 
-        {/* Form */}
+
         <form onSubmit={handleSubmit} className="mt-6 space-y-4">
-          {/* Input Nama Makanan */}
+
           <div>
             <input 
               type="text" 
@@ -64,7 +63,7 @@ export default function Forminput ({ isOpen, onClose }) {
             />
           </div>
 
-          {/* Input Kota & Provinsi (dalam satu baris) */}
+
           <div className="flex flex-col md:flex-row gap-4">
             <input 
               type="text" 
@@ -83,14 +82,15 @@ export default function Forminput ({ isOpen, onClose }) {
               required
             >
               <option value="">Pilih Provinsi</option>
-              <option value="Bali">Bali</option>
-              <option value="Jawa Barat">Jawa Barat</option>
-              <option value="DKI Jakarta">DKI Jakarta</option>
-              {/* Tambahkan provinsi lainnya di sini */}
+              {provinces.map(provinsi => (
+                <option key={provinsi} value={provinsi}>
+                  {provinsi}
+                </option>
+               ))}
             </select>
           </div>
           
-          {/* Input Komentar/Cerita */}
+
           <div>
             <textarea 
               name="komentar"
@@ -102,7 +102,7 @@ export default function Forminput ({ isOpen, onClose }) {
             ></textarea>
           </div>
 
-          {/* Tombol Submit */}
+
           <button 
             type="submit"
             className="w-full bg-[#A9442A] text-white py-3 rounded-md font-bold uppercase hover:bg-opacity-90 transition-colors"

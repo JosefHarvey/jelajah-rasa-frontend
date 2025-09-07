@@ -1,4 +1,4 @@
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { TiStarFullOutline } from "react-icons/ti";
 import { useEffect, useState } from "react";
 import RestoFoodCard from "../components/RestoFoodCard";
@@ -12,21 +12,35 @@ import { useAuth } from "../Authcontext";
 export default function Foodpage (){
     const [activeClick, setActiveSection] = useState('overview')
     const [isModalOpen,setIsModalOpen] = useState(false)
-   // const [activeSession, setActiveSesion] = useState('pengenalan')
+    const [commentToEdit, setCommentToEdit] = useState(null);
     const [article, setArticle] = useState(null)
     const [error, setError] = useState(null)
     const [picture, setPicture] = useState([])
     const {id} = useParams();
-    const {isLoggedIn} = useAuth()
+    const {user, isLoggedIn} = useAuth()
 
 
     const handleModalOpen =() => {
-        if (isLoggedIn) {
-        setIsModalOpen(true);
-        } else {
-        alert("Anda harus login untuk dapat memberikan komentar.");  
+        if (!isLoggedIn) {
+            alert("Anda harus login untuk dapat memberikan komentar.");
+            return; 
         }
+        const usersComment = article.comments.find(comment => comment.userId === user.id);
+        if (usersComment) {
+            setCommentToEdit(usersComment);
+        } else {
+            setCommentToEdit(null);
+        }
+        
+        setIsModalOpen(true)
     };
+    const handleEditComment = (commentData) => {
+    setCommentToEdit(commentData); 
+    setIsModalOpen(true);
+    };
+    
+     
+
     const handleNavClick = (section) => {
         setActiveSection(section)
     }
@@ -67,7 +81,6 @@ export default function Foodpage (){
     },[id])
 
     useEffect(() => {
-        // 1. Ambil seluruh data dari file picture-api.json
         fetch('/picture-api.json')
         .then(response => {
             if (!response.ok) {
@@ -75,16 +88,11 @@ export default function Foodpage (){
             }
             return response.json();
         })
-        .then(data => { // 'data' sekarang adalah sebuah ARRAY
+        .then(data => { 
             console.log("Data gambar yang diterima:", data);
-
-            // Ubah 'id' dari URL (yang berupa string) menjadi angka
             const idDariUrl = parseInt(id); 
-
-            // 2. Gunakan metode .find() untuk mencari objek yang id-nya cocok
             const foundPicture = data.find(pic => pic.id === idDariUrl);
-
-            // 3. Simpan objek yang ditemukan ke dalam state
+            
             if (foundPicture) {
             setPicture(foundPicture);
             } else {
@@ -94,7 +102,7 @@ export default function Foodpage (){
         .catch(error => {
             console.error("Gagal memuat atau mem-parsing data gambar:", error);
         });
-    }, [id]); // Tetap gunakan [id] sebagai dependency
+    }, [id]); 
     
 
     if (error) {
@@ -107,9 +115,9 @@ export default function Foodpage (){
     
     return(
         <>     
-                <div  className="lg:hidden">
-                    <img src={picture.heroUrl} alt="" className="md:h-100 lg:h-125 w-full object-cover"/>
-                </div>      
+            <div  className="lg:hidden">
+                <img src={picture.heroUrl} alt="" className="md:h-100 lg:h-125 w-full object-cover"/>
+            </div>      
             <div className="my-5 mx-2 text-[#4A3521] font-Montserrat md:mx-10 md:my-5 lg:mx-20 lg:my-10 ">
                 <div className="flex justify-between lg:shadow-xl/lg  lg:p-25 lg:flex-col ">
     
@@ -144,7 +152,6 @@ export default function Foodpage (){
                                         </p>
                                     </div>
 
-                                    {/* --- 3. Fakta Menarik (Info Box yang Menonjol) --- */}
                                     <div className="bg-white p-6 rounded-lg shadow-lg border-l-4 border-[#A9442A] my-8">
                                         <div className="flex items-start gap-x-4">
                                         <div className="text-3xl text-[#A9442A] mt-1">
@@ -175,7 +182,7 @@ export default function Foodpage (){
                             <button className="border uppercase text-sm px-4 rounded-2xl text-[#aaaaaa] md:text-base" onClick={() => handleModalOpen(true)}>
                                 beri nilai
                             </button>
-                            {isModalOpen && <Commentform isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}/>}
+                            {isModalOpen && <Commentform isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} initialData={commentToEdit}/>}
                         </div>     
                 </div>
                 <hr className="text-[#AAAAAA] my-5 lg:hidden"/>
@@ -203,7 +210,6 @@ export default function Foodpage (){
                             </p>
                         </div>
 
-                        {/* --- 3. Fakta Menarik (Info Box yang Menonjol) --- */}
                         <div className="bg-white p-6 rounded-lg shadow-lg border-l-4 border-[#A9442A] my-8">
                             <div className="flex items-start gap-x-4">
                             <div className="text-3xl text-[#A9442A] mt-1">
@@ -228,7 +234,7 @@ export default function Foodpage (){
                         </div>
                     </div>
                     <div className="my-4 flex flex-col items-start ">
-                        <RestoFoodCard resto={article}/>
+                        <RestoFoodCard resto={article} images={picture}/>
                     </div>
                 </div>
                 <div id="komentar" ref={comment} className="">
@@ -250,11 +256,11 @@ export default function Foodpage (){
                             </div>
 
                             <button onClick={() => handleModalOpen(true)} className="font-Montserrat text-sm text-[#AAAAAA] text-start border w-full py-1 px-3 rounded-2xl my-3 md:text-base md:py-3 md:px-5 md:rounded-3xl" >Berikan Pendapatmu!</button>
-                            {isModalOpen && <Commentform isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}/>}
+                            {isModalOpen && <Commentform isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} initialData={commentToEdit}/>}
                         </div>   
                                
                         <div className="my-2 md:mt-5  w-full ">
-                            <Comment article={article}/>
+                            <Comment article={article}  key={comment.id} onEdit={handleEditComment}/>
                         </div>
                     </div>
                 </div>

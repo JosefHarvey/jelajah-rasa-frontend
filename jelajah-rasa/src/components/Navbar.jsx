@@ -1,8 +1,8 @@
 import { RxHamburgerMenu } from "react-icons/rx";
 import { MdOutlinePersonOutline } from "react-icons/md";
 import { RxCross1 } from "react-icons/rx";
-import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import Forminput from "./Forminput";
 import Register from "../pages/Register";
 import Login from "../pages/Login";
@@ -11,30 +11,21 @@ import Dropdown from "./dropdown";
 
 
 export default function Navbar(){
-    const {user, isLoggedIn, logout} = useAuth()
+    const {user, isLoggedIn} = useAuth()
 
-    console.log("STATUS DARI NAVBAR:", { user, isLoggedIn });
-
-    const navigate = useNavigate()
     const[isMenuOpen, setIsMenuOpen] = useState(false)
     const[isModalOpen,setIsModalOpen] = useState(false)
     const [isRegisterOpen, setIsRegisterOpen] = useState(false);
     const [isLoginOpen, setIsLoginOpen] = useState(false);
     const [dropdown, setDropdown] = useState(false)
 
-    const handleClickDropdown = () => {
-        setDropdown(true)
-    }
+
 
     const navLinks = [
         { href: "/Map", title: "Peta"},
         { href: "/About", title: "Tentang Kami"}
     ]
     
-    const handleLogout = () => {
-        logout()
-        navigate('/')
-    }
 
     const handleModalOpen =() => {
         setIsModalOpen(true)
@@ -126,10 +117,9 @@ export default function Navbar(){
                         {isModalOpen && <Forminput isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}/>}     
                    </div>
                      
-                   <a href="mailto:abcdefgh123@gmail.com" className="mx-10 text-xl text-[#4A3521] font-medium">
-                    abcdefgh123@gmail.com
-                   </a>
-                    
+                   <a href="mailto:editorjelajahrasa@gmail.com" className="mx-10 text-xl text-[#4A3521] font-medium">
+                    editorjelajahrasa@gmail.com
+                   </a>            
                </div>
             </div>
         </>

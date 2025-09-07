@@ -14,7 +14,7 @@ export default function Approutes () {
     return(
         <Routes>
             <Route path="/" element={<Landingpage />}/>
-            <Route path="/Citypage" element={<Citypage />} />
+            <Route path="/Citypage/:id" element={<Citypage />} />
             <Route path="/Foodpage/:id" element={<Foodpage/>}/>
             <Route path="/Profile" 
             element={

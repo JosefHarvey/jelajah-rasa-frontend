@@ -32,8 +32,8 @@ function useWindowSize() {
 export default function Map() {
     const [width] = useWindowSize(); 
     const [pins, setPins] = useState([])
-    const [article, setArticle] = useState(null)
-    const [error, setError] = useState(null)
+    const [setArticle] = useState(null)
+    const [setError] = useState(null)
     const {id} = useParams()
     const indonesiaBounds = [
     [6.9, 95.0],  

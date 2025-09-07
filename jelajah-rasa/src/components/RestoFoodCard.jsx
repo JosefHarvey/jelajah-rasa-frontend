@@ -1,14 +1,13 @@
 import { MdOutlineLocationOn } from "react-icons/md";
 
-export default function RestoFoodCard ({resto}){
+export default function RestoFoodCard ({resto, images}){
     return (
         <>
         {
-
-            <a href="" className="mt-4 ">
-                <div className="flex justify-center gap-x-4">
+            <a href={images.mapsResto} className="mt-4 ">
+                <div className="flex justify-center  gap-x-4 md:gap-x-10 lg:gap-x-25">
                     <div className="w-full flex-initial lg:w-125">
-                        <img src="/placeholdermap.webp" alt="" className="w-full h-full "/>
+                        <img src={images.resto1} alt="" className="w-full h-full "/>
                     </div>
                     <div className=" font-Lora " >
                         <div className="font-bold text-lg md:text-2xl lg:text-4xl">

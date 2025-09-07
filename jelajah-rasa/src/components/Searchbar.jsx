@@ -10,7 +10,7 @@ export default function SearchBar() {
   const {id} = useParams();
   const [picture, setPicture] = useState([])  
 
-  // Fungsi debounced untuk fetch data
+
   const debouncedFetch = useDebouncedCallback((searchQuery) => {
     if (searchQuery.length > 2) {
       setIsLoading(true);
@@ -25,7 +25,7 @@ export default function SearchBar() {
   }, 500);
 
       useEffect((searchQuery) => {
-          // 1. Ambil seluruh data dari file picture-api.json
+
           fetch('/picture-api.json')
           .then(response => {
               if (!response.ok) {
@@ -33,9 +33,7 @@ export default function SearchBar() {
               }
               return response.json();
           })
-          .then(data => { // 'data' sekarang adalah sebuah ARRAY
-              console.log("Data gambar yang diterima:", data);
-  
+          .then(data => {  
               const foundPicture = data.find(pic => pic.name === searchQuery);
   
               if (foundPicture) {
@@ -56,25 +54,25 @@ export default function SearchBar() {
   };
 
   return (
-    // 1. Container utama SEKARANG relative, BUKAN absolute
+
     <div className="relative w-full">
-      {/* Wadah untuk input dan ikon */}
+
       <div className="relative">
         <input
           type="text"
           placeholder="Cari makanan atau kota..."
           value={query}
           onChange={handleInputChange}
-          className=" bg-white w-80 h-8 rounded-2xl text-xs text-[#4A3521] font-Montserrat font-medium tracking-tight p-3 md:w-150 md:h-10 md:rounded-3xl md:text-sm lg:w-225 lg:h-12 lg:rounded-3xl lg:text-sm"
+          className=" bg-[#F5F0E8] w-80 h-8 rounded-2xl text-xs text-[#4A3521] font-Montserrat font-medium tracking-tight p-3 md:w-150 md:h-10 md:rounded-3xl md:text-sm lg:w-225 lg:h-12 lg:rounded-3xl lg:text-sm"
         />
         <IoSearchOutline 
           className="absolute top-1/2 -translate-y-1/2 right-4 text-gray-400 text-2xl pointer-events-none"
         />
       </div>
 
-      {/* 2. Daftar hasil diposisikan absolut TERHADAP container utama di atas */}
+
       {query.length > 2 && (
-        <div className="absolute top-full mt-2 w-full bg-white rounded-2xl shadow-xl overflow-hidden z-20">
+        <div className="absolute top-full mt-2 w-full bg-[#F5F0E8] rounded-2xl shadow-xl overflow-hidden z-20">
           {isLoading && <div className="p-4 text-gray-500">Mencari...</div>}
           
           {!isLoading && results.length > 0 && (
@@ -85,13 +83,13 @@ export default function SearchBar() {
                     to={`/Foodpage/${food.id}`} 
                     className="flex items-center gap-4 p-3 hover:bg-gray-100 transition-colors"
                   >
-                    {/* Ganti dengan gambar asli nanti */}
+
                     <img src={picture.heroUrl} className="w-12 h-12 bg-gray-200 rounded-md flex-shrink-0"> 
                         
                     </img>
                     <div>
                       <p className="font-bold text-gray-800">{food.name}</p>
-                      {/* Anda bisa tambahkan kota jika ada */}
+   
                     </div>
                   </Link>
                 </li>

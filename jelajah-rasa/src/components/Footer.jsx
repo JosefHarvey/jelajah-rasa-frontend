@@ -30,7 +30,8 @@ export default function Footer (){
                             unggah cerita anda
                         </button>
                         {isModalOpen && <Forminput isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}/>}
-                        <a href="mailto:abcdefgh123@gmail.com" className="font-medium lg:font-bold"><span className="text-[#AAAAAA] font-Montserrat font-normal hidden lg:inline">hubungi kami pada </span>abcdefgh123@gmail.com</a>
+                        <a href="mailto:editorjelajahrasa@gmail.com
+                        " className="font-medium lg:font-bold"><span className="text-[#AAAAAA] font-Montserrat font-normal hidden lg:inline">hubungi kami pada </span>editorjelajahrasa@gmail.com</a>
                     </div>
                 </div>
                 <div className="flex gap-23 items-center text-sm font-medium md:hidden lg:hidden">

@@ -3,7 +3,6 @@ export default function AboutPage() {
     <main className="">
       <div className="max-w-2xl mx-auto px-4 py-12 md:py-20">
         
-        {/* Judul Utama */}
         <header className="text-center mb-10">
           <h1 className="font-Lora font-bold text-4xl md:text-5xl text-[#4A3521]">
             Tentang Jelajah Rasa
@@ -11,7 +10,6 @@ export default function AboutPage() {
           <div className="w-20 h-1 bg-[#D71515] mx-auto mt-4"></div>
         </header>
 
-        {/* Konten Teks */}
         <div className="font-sans text-lg text-gray-700 leading-relaxed space-y-6">
           <p>
             Jelajah Rasa adalah ensiklopedia citarasa, sebuah peta pusaka kuliner Indonesia. Kami mendokumentasikan hidangan tradisional, bahan baku lokal, serta cerita otentik di baliknya.
@@ -30,16 +28,16 @@ export default function AboutPage() {
           </p>
         </div>
 
-        {/* Bagian Penutup */}
+
         <footer className="mt-10 pt-6 border-t border-gray-200">
           <p className="font-sans text-lg font-bold text-gray-800">
             Tim Jelajah Rasa
           </p>
           <a 
-            href="mailto:kontak@jelajahrasa.id" 
+            href="mailto:editorjelajahrasa@gmail.com" 
             className="font-sans text-lg text-[#D71515] hover:underline"
           >
-            kontak@jelajahrasa.id
+            editorjelajahrasa@gmail.com
           </a>
         </footer>
 

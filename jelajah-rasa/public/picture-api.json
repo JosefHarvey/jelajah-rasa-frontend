@@ -2,13 +2,15 @@
   {
     "id": 1,
     "nama": "Rendang" ,
-    "heroUrl": "/rendangHero.jpg",
-    "mapUrl": "/sumateraBaratMap.png"
+    "heroUrl": "/images/foodPage/rendangHero.jpg",
+    "mapUrl": "/images/foodPage/sumateraBaratMap.png",
+    "resto1":"/images/foodPage/restoRendang1.jpg",
+    "mapsResto":"https://maps.app.goo.gl/fP6rJGoJktDsSqFz6"
   },
   {
     "id": 2,
     "nama": "Sate Maranggi",
-    "heroUrl": "/sateMaranggiHero.png",
-    "mapUrl": "/sumateraBaratMap.png"
+    "heroUrl": "/images/foodPage/sateMaranggiHero.png",
+    "mapUrl": "/images/foodPage/sumateraBaratMap.png"
   }
 ]

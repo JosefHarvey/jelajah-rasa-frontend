@@ -1,0 +1,94 @@
+[
+    {
+        "id" : 1,
+        "nama": "Sumatra Barat",
+        "heroImg" : "/images/cityPage/sumateraBaratHero.jpg",
+        "mapImg" : "/images/cityPage/sumateraBaratMap.png",
+        "food" : [
+            {
+                "id": 1,
+                "name":"",
+                "image": "/images/cityPage/rendangHero.jpg",
+                "averageRating": 5
+            }
+
+        ],
+        "resto":[
+            {
+                "id": 1,
+                "name":"RM Lamun Ombak",
+                "image":"/images/cityPage/sumateraBaratHotel1.jpg",
+                "maps":"Jl. Khatib Sulaiman 99, Padang 25137 Indonesia",
+                "mapUrl": "https://maps.app.goo.gl/pH7zg57Tfe7n625y7"
+            },
+            {
+                "id": 2,
+                "name":"Skyline Restaurant ",
+                "image":"/images/cityPage/sumateraBaratHotel2.jpg",
+                "maps":"Jln. Taman Siswa 1A Ibis Padang, Padang 25138 Indonesia",
+                "mapUrl": "https://maps.app.goo.gl/vfpUCKAtV3bmpdts9"
+            },
+            {
+                "id": 3,
+                "name":"Pagi Sore",
+                "image":"/images/cityPage/sumateraBaratHotel3.jpg",
+                "maps":"Jl. Pondok no. 143 Taman Area, Padang Indonesia",
+                "mapUrl": "https://maps.app.goo.gl/xFWvqB4946QG3wxt5"           
+            },
+            {
+                "id": 4,
+                "name":"Rumah Makan Fuja",
+                "image":"/images/cityPage/sumateraBaratHotel4.jpg",
+                "maps":"Jln. Samudra No. 2, Padang 25117 Indonesia",
+                "mapUrl": "https://maps.app.goo.gl/tHLo6SGUQUmKakdn9"            
+                }
+
+        ]
+    },
+    {
+        "id" : 2,
+        "nama": "Jawa Barat",
+        "heroImg" : "/images/cityPage/jawaBaratHero.jpg",
+        "mapImg" : "/images/cityPage/jawaBaratMap.png",
+        "food" : [
+            {
+                "id": 1,
+                "name":"",
+                "image": "/images/cityPage/sateMaranggiHero.png",
+                "averageRating": 5
+            }
+
+        ],
+        "resto":[
+            {
+                "id": 1,
+                "name":"Bijan",
+                "image":"/images/cityPage/jawaBaratHotel1.jpg",
+                "maps":"Jl. Jawa No.54, Bandung",
+                "mapUrl": "https://maps.app.goo.gl/newaLoZdaVmxiThp9"
+            },
+            {
+                "id": 2,
+                "name":"Sadrasa Kitchen and Bar ",
+                "image":"/images/cityPage/jawaBaratHotel2.jpg",
+                "maps":"Jl. Diponegoro No. 27 Pullman Bandung Grand Central, Bandung ",
+                "mapUrl": "https://maps.app.goo.gl/newaLoZdaVmxiThp9"
+            },
+            {
+                "id": 3,
+                "name":"Hummingbird Eatery",
+                "image":"/images/cityPage/jawaBaratHotel3.jpg",
+                "maps":"Jl. Progo 14, Bandung 40115 Indonesia",
+                "mapUrl": "https://maps.app.goo.gl/J9PD4fyJVWu6WPfR7"           
+            },
+            {
+                "id": 4,
+                "name":"Pago Restaurant",
+                "image":"/images/cityPage/jawaBaratHotel4.jpg",
+                "maps":"Jl. Gatot Subroto No.83 The Papandayan Hotel, Bandung ",
+                "mapUrl": "https://maps.app.goo.gl/wZ3g8D4wmT7F7vFZ6"            
+                }
+
+        ]
+    }
+]
